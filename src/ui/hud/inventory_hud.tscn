@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bdl2glnar40nr"]
+
+[ext_resource type="Script" uid="uid://474l4h57fglx" path="res://src/ui/hud/inventory_hud.gd" id="1_bt87i"]
+
+[node name="InventoryHUD" type="CanvasLayer" unique_id=1051674479]
+script = ExtResource("1_bt87i")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=664117008]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=308296193]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot0" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1312001245]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Slot0" unique_id=1319594559]
+layout_mode = 2
+text = "W"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot0" unique_id=1762134953]
+layout_mode = 2
+
+[node name="Slot1" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=214146089]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Slot1" unique_id=1070188228]
+layout_mode = 2
+text = "A"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot1" unique_id=2141241803]
+layout_mode = 2
+
+[node name="Slot2" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1863789936]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Slot2" unique_id=417328550]
+layout_mode = 2
+text = "S"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot2" unique_id=1488429103]
+layout_mode = 2
+
+[node name="Slot3" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1923077038]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Slot3" unique_id=740436459]
+layout_mode = 2
+text = "D"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot3" unique_id=1048376605]
+layout_mode = 2
