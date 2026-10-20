@@ -14,6 +14,11 @@ config/name="my-first-rpg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*uid://efnoet1u1445"
+VoiceManager="*uid://drgaujrg7sv1y"
+
 [display]
 
 window/stretch/mode="canvas_items"
