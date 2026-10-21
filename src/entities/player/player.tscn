@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5kyst5yf7t4l" path="res://src/entities/player/player_controller.gd" id="1_4m8ck"]
 [ext_resource type="Script" uid="uid://cr8d614m2l6ds" path="res://src/entities/player/player_inventory.gd" id="2_vt6n5"]
 [ext_resource type="PackedScene" uid="uid://bdl2glnar40nr" path="res://src/ui/hud/inventory_hud.tscn" id="3_muk8e"]
+[ext_resource type="PackedScene" uid="uid://c5oage2p1tcm5" path="res://src/ui/captcha/captcha_popup.tscn" id="4_wrxq6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8cqn"]
 
@@ -21,3 +22,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 script = ExtResource("2_vt6n5")
 
 [node name="InventoryHUD" parent="." unique_id=1051674479 instance=ExtResource("3_muk8e")]
+
+[node name="CaptchaPopup" parent="." unique_id=866973205 instance=ExtResource("4_wrxq6")]
