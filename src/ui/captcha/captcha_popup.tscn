@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c5oage2p1tcm5"]
+
+[ext_resource type="Script" uid="uid://b8gk4idvva0h8" path="res://src/ui/captcha/captcha_popup.gd" id="1_ldo65"]
+
+[node name="CaptchaPopup" type="CanvasLayer" unique_id=866973205]
+layer = 10
+visible = false
+script = ExtResource("1_ldo65")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2064169813]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1510843214]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1074850085]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1677889202]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1769916409]
+layout_mode = 2
+text = "VERIFIKASI KEAMANAN"
+horizontal_alignment = 1
+
+[node name="CodeDisplayPanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=527465109]
+layout_mode = 2
+
+[node name="TargetCodeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CodeDisplayPanel" unique_id=479083268]
+layout_mode = 2
+text = "k8X2P"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLineEdit" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=892037951]
+layout_mode = 2
+placeholder_text = "Ketik kode di sini..."
+alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1478399575]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.15686275, 0, 1)
+horizontal_alignment = 1
+
+[node name="SubmitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1307044826]
+layout_mode = 2
+text = "VERIFIKASI"

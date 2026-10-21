@@ -13,13 +13,21 @@ var delay_timer: float = 0.0
 var target_input_dir: Vector2 = Vector2.ZERO
 var delayed_input_dir: Vector2 = Vector2.ZERO
 
+var is_locked: bool = false
+
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	EventBus.captcha_triggered.connect(func(): is_locked = true)
+	EventBus.captcha_resolved.connect(func(_success): is_locked = false)
+	
 func _unhandled_input(event: InputEvent) -> void:
+	if is_locked:
+		return
+		
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		head.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -30,10 +38,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
+	if event.is_action_pressed("interact"):
+		EventBus.interaction_attempted.emit("test_object")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		
+	if is_locked:
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
+		move_and_slide()
+		return
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
