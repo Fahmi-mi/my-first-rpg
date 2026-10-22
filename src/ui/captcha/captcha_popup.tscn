@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5oage2p1tcm5"]
 
 [ext_resource type="Script" uid="uid://b8gk4idvva0h8" path="res://src/ui/captcha/captcha_popup.gd" id="1_ldo65"]
+[ext_resource type="FontFile" uid="uid://ckohbp1txk67k" path="res://src/ui/captcha/Swirled2.ttf" id="2_ws4ga"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcltu"]
 bg_color = Color(0.02158491, 0.61386657, 0.99999994, 1)
@@ -8,6 +9,7 @@ bg_color = Color(0.02158491, 0.61386657, 0.99999994, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_xcltu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aucjx"]
+font = ExtResource("2_ws4ga")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aucjx"]
