@@ -2,56 +2,144 @@
 
 [ext_resource type="Script" uid="uid://b8gk4idvva0h8" path="res://src/ui/captcha/captcha_popup.gd" id="1_ldo65"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcltu"]
+bg_color = Color(0.02158491, 0.61386657, 0.99999994, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xcltu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aucjx"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aucjx"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.96971315, 0.9714137, 0.9798601, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.573792, 0.573792, 0.5737917, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vomwa"]
+bg_color = Color(0.019607844, 0.6156863, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcltu"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+
 [node name="CaptchaPopup" type="CanvasLayer" unique_id=866973205]
 layer = 10
-visible = false
 script = ExtResource("1_ldo65")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2064169813]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1065795499]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 467
+theme_override_constants/margin_top = 218
+theme_override_constants/margin_right = 467
+theme_override_constants/margin_bottom = 218
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1510843214]
+[node name="MainPanel" type="ColorRect" parent="MarginContainer" unique_id=2025544093]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1074850085]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+[node name="TopBar" type="Panel" parent="MarginContainer/MainPanel" unique_id=1683631314]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcltu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1677889202]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1769916409]
-layout_mode = 2
-text = "VERIFIKASI KEAMANAN"
-horizontal_alignment = 1
-
-[node name="CodeDisplayPanel" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=527465109]
-layout_mode = 2
-
-[node name="TargetCodeLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CodeDisplayPanel" unique_id=479083268]
-layout_mode = 2
-text = "k8X2P"
+[node name="Label" type="Label" parent="MarginContainer/MainPanel/TopBar" unique_id=914679642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Match The words Below"
+label_settings = SubResource("LabelSettings_xcltu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InputLineEdit" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=892037951]
-layout_mode = 2
-placeholder_text = "Ketik kode di sini..."
-alignment = 1
-
-[node name="ErrorLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1478399575]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.15686275, 0, 1)
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainPanel" unique_id=735555264]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -25.5
+offset_right = 86.0
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "KJADJFKLAKL"
+label_settings = SubResource("LabelSettings_aucjx")
 horizontal_alignment = 1
 
-[node name="SubmitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1307044826]
-layout_mode = 2
-text = "VERIFIKASI"
+[node name="Input" type="LineEdit" parent="MarginContainer/MainPanel" unique_id=456659396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 3.5
+offset_right = 65.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.5290674, 0.5290664, 0.52906674, 0.6)
+theme_override_colors/selection_color = Color(0.6715141, 0.67151415, 0.671514, 1)
+theme_override_colors/clear_button_color = Color(0.25275406, 0.25275338, 0.25275353, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_aucjx")
+placeholder_text = "Enter CAPTCHA"
+
+[node name="Button" type="Button" parent="MarginContainer/MainPanel" unique_id=1162828350]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 44.0
+offset_right = 61.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_vomwa")
+text = "Submit"
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer/MainPanel" unique_id=795399268]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.98627335, 0, 0.15667966, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xcltu")
+text = "CAPTCHA Verification Failed, Please Try Again"
+horizontal_alignment = 1
+vertical_alignment = 1

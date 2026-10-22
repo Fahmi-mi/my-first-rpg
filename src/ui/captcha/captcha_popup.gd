@@ -6,10 +6,10 @@ extends CanvasLayer
 const CHAR_POOL: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz23456789"
 var target_code: String = ""
 
-@onready var target_label: Label = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CodeDisplayPanel/TargetCodeLabel
-@onready var input_line_edit: LineEdit = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/InputLineEdit
-@onready var error_label: Label = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ErrorLabel
-@onready var submit_button: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SubmitButton
+@onready var target_label: Label = $MarginContainer/MainPanel/TitleLabel #$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CodeDisplayPanel/TargetCodeLabel
+@onready var input_line_edit: LineEdit = $MarginContainer/MainPanel/Input #$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/InputLineEdit
+@onready var error_label: Label = $MarginContainer/MainPanel/ErrorLabel #$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ErrorLabel
+@onready var submit_button: Button = $MarginContainer/MainPanel/Button  #$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SubmitButton
 
 func _ready() -> void:
 	hide()
@@ -52,7 +52,7 @@ func _verify_input() -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		EventBus.captcha_resolved.emit(true)
 	else:
-		error_label.text = "Salah! Kode diacak ulang"
+		error_label.text = "CAPTCHA Verification Failed, Please Try Again"
 		input_line_edit.text = ""
 		_generate_new_code()
 		input_line_edit.grab_focus()
