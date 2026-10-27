@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cr8d614m2l6ds" path="res://src/entities/player/player_inventory.gd" id="2_vt6n5"]
 [ext_resource type="PackedScene" uid="uid://bdl2glnar40nr" path="res://src/ui/hud/inventory_hud.tscn" id="3_muk8e"]
 [ext_resource type="PackedScene" uid="uid://c5oage2p1tcm5" path="res://src/ui/captcha/captcha_popup.tscn" id="4_wrxq6"]
+[ext_resource type="Script" uid="uid://beuytmpglhgwg" path="res://src/core/health_component.gd" id="5_ketdh"]
+[ext_resource type="PackedScene" uid="uid://ce4wecgbwiaes" path="res://src/ui/hud/health_bar.tscn" id="6_0mfjg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8cqn"]
 
@@ -24,3 +26,8 @@ script = ExtResource("2_vt6n5")
 [node name="InventoryHUD" parent="." unique_id=1051674479 instance=ExtResource("3_muk8e")]
 
 [node name="CaptchaPopup" parent="." unique_id=866973205 instance=ExtResource("4_wrxq6")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=745273149]
+script = ExtResource("5_ketdh")
+
+[node name="HealthBar" parent="." unique_id=257216793 instance=ExtResource("6_0mfjg")]
