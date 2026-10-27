@@ -18,15 +18,32 @@ var is_locked: bool = false
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
 	EventBus.captcha_resolved.connect(func(_success): is_locked = false)
 	
+	health_component.damage_taken.connect(_on_damage_taken)
+	health_component.died.connect(_on_died)
+	
+func _on_damage_taken(amount: int) -> void:
+	print("[Player] Damage: %d, Remaining Health: %d/%d" % [amount, health_component.current_health, health_component.max_health])
+	
+func _on_died() -> void:
+	print("[Player] You died")
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if is_locked:
 		return
+		
+	#test damage and heal
+	#if event is InputEventKey and event.pressed and event.keycode == KEY_K:
+		#health_component.take_damage(20)
+	#if event is InputEventKey and event.pressed and event.keycode == KEY_L:
+		#health_component.heal(15)
 		
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -54,7 +71,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-		VoiceManager.play_voice("test_audio")
+		#test audio function
+		#VoiceManager.play_voice("test_audio")
 		
 	var raw_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
