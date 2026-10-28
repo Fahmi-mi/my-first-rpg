@@ -17,6 +17,8 @@ var is_locked: bool = false
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var see_cast: RayCast3D = %SeeCast
+@onready var hand: Node3D = $Head/Camera3D/Hand
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,10 +41,21 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
+	var object = see_cast.get_collider()
 	if event.is_action_pressed("interact"):
-		EventBus.interaction_attempted.emit("test_object")
+		if object == null:
+			return 
+		elif see_cast.is_colliding() and object.is_in_group("interactable"):
+			if has_method("interact"):
+				object.interact(self)
+			
 
 func _physics_process(delta: float) -> void:
+	
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+		print(target)
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		

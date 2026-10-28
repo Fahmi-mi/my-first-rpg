@@ -17,6 +17,15 @@ shape = SubResource("CapsuleShape3D_w8cqn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=235367004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.3355722, 0, 0, 0)
+
+[node name="SeeCast" type="RayCast3D" parent="Head/Camera3D" unique_id=1271913986]
+unique_name_in_owner = true
+transform = Transform3D(0.0074892268, -0.06676808, -1.754765, 0.9431062, 0.07591345, 0.012132944, -0.031985246, 2.2227275, -0.053125516, 0.06659436, -0.0005837679, 0)
+collision_mask = 3
+
+[node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1143117086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1292118, -0.07147527, -2.2387598)
 
 [node name="Inventory" type="Node" parent="." unique_id=1068612398]
 script = ExtResource("2_vt6n5")

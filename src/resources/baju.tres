@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://crm6sr1axdpaa"]
+
+[ext_resource type="Texture2D" uid="uid://dpimmp1lexpot" path="res://assets/placeholders/baju.png" id="1_xjedj"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="2_qs212"]
+
+[resource]
+script = ExtResource("2_qs212")
+id = "saokoak"
+item_name = "baju"
+icon = ExtResource("1_xjedj")
+metadata/_custom_type_script = "uid://v0afeq406dv6"
