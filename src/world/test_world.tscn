@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://5iwgsni1iake"]
 
 [ext_resource type="PackedScene" uid="uid://c41mykv688cxe" path="res://src/entities/player/player.tscn" id="1_ufmjq"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_0fwu5"]
+[ext_resource type="Resource" uid="uid://crm6sr1axdpaa" path="res://src/resources/baju.tres" id="3_qenvy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4vx48"]
 
@@ -26,3 +28,11 @@ environment = SubResource("Environment_w8cqn")
 
 [node name="Player" parent="." unique_id=964984718 instance=ExtResource("1_ufmjq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Interactables" parent="." unique_id=2035168717 instance=ExtResource("2_0fwu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8970232, 1.5928041, -3.1050563)
+item_data = ExtResource("3_qenvy")
+
+[node name="Interactables2" parent="." unique_id=1334604056 instance=ExtResource("2_0fwu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.818072, 1.8141599, -1.1550322)
+item_data = ExtResource("3_qenvy")

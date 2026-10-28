@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d1i7kwgu7cl3t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4a0qc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4a0qc"]
+
+[node name="Kapak" type="RigidBody3D" unique_id=1615813137 groups=["interactable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=989482026]
+mesh = SubResource("BoxMesh_4a0qc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=138103812]
+shape = SubResource("BoxShape3D_4a0qc")

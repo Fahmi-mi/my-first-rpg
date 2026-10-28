@@ -21,7 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.3355722, 0, 0, 0)
 
 [node name="SeeCast" type="RayCast3D" parent="Head/Camera3D" unique_id=1271913986]
 unique_name_in_owner = true
-transform = Transform3D(0.0074892268, -0.06676808, -1.754765, 0.9431062, 0.07591345, 0.012132944, -0.031985246, 2.2227275, -0.053125516, 0.06659436, -0.0005837679, 0)
+transform = Transform3D(0.007121521, -0.14618863, -4.384532, 0.8968016, 0.1662124, 0.030315896, -0.030414836, 4.866659, -0.1327417, 0.06659436, -0.0005837679, 0)
 collision_mask = 3
 
 [node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1143117086]

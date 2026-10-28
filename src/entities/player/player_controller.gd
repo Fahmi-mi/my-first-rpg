@@ -43,18 +43,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 	var object = see_cast.get_collider()
 	if event.is_action_pressed("interact"):
+		print(object)
 		if object == null:
 			return 
 		elif see_cast.is_colliding() and object.is_in_group("interactable"):
 			if has_method("interact"):
-				object.interact(self)
+				object.interact()
 			
 
 func _physics_process(delta: float) -> void:
 	
 	if %SeeCast.is_colliding():
 		var target = %SeeCast.get_collider()
-		print(target)
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
