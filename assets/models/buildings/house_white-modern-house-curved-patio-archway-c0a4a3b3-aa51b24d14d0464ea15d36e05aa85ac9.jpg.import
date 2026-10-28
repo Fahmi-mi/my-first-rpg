@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d20h1sf22jnep"
-path.s3tc="res://.godot/imported/test-model_white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg-874339f185ceda9dc8d2498adfe5f330.s3tc.ctex"
+uid="uid://dckeh8epnpn6g"
+path.s3tc="res://.godot/imported/house_white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg-2f00dd274dc4477ec905e5d6e58d62bb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/placeholders/test_house/test-model_white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg"
-dest_files=["res://.godot/imported/test-model_white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg-874339f185ceda9dc8d2498adfe5f330.s3tc.ctex"]
+source_file="res://assets/models/buildings/house_white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg"
+dest_files=["res://.godot/imported/house_white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg-2f00dd274dc4477ec905e5d6e58d62bb.s3tc.ctex"]
 
 [params]
 

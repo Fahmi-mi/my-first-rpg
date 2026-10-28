@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://def2w7ahow8mu"
-path="res://.godot/imported/test-model.glb-dfcd34c29e3375e059c0ed6c4a2f65a7.scn"
+uid="uid://dgjbfx0p87qxv"
+path="res://.godot/imported/pohon1.glb-6b599b47e7246fed3742036aa312e02d.scn"
 
 [deps]
 
-source_file="res://assets/placeholders/test_house/test-model.glb"
-dest_files=["res://.godot/imported/test-model.glb-dfcd34c29e3375e059c0ed6c4a2f65a7.scn"]
+source_file="res://assets/models/buildings/pohon1.glb"
+dest_files=["res://.godot/imported/pohon1.glb-6b599b47e7246fed3742036aa312e02d.scn"]
 
 [params]
 
@@ -41,9 +41,8 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Cube": {
-"generate/physics": true,
-"primitive/size": Vector3(1.5, 1.5, 1.5)
+"PATH:Plane": {
+"generate/physics": true
 }
 }
 }

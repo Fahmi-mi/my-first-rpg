@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0sy6vxpx7u6"
-path="res://.godot/imported/Lamp post.png-bffc45623a5cf93c2058012b1aff01a1.ctex"
+uid="uid://coyfyhu35ysf1"
+path="res://.godot/imported/Tree-1.png-8d249194521fad65a4bdd989590938dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/Lamp post.png"
-dest_files=["res://.godot/imported/Lamp post.png-bffc45623a5cf93c2058012b1aff01a1.ctex"]
+source_file="res://assets/models/buildings/Tree-1.png"
+dest_files=["res://.godot/imported/Tree-1.png-8d249194521fad65a4bdd989590938dd.ctex"]
 
 [params]
 

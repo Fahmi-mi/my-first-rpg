@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c1u8tv4ss2st8"]
+
+[ext_resource type="PackedScene" uid="uid://d2bkqd7dbd5hl" path="res://assets/models/buildings/Pesawat.glb" id="1_13n77"]
+[ext_resource type="PackedScene" uid="uid://bqmrnunw517nl" path="res://assets/models/buildings/pohon2.glb" id="2_8vctf"]
+[ext_resource type="PackedScene" uid="uid://cqyk720r3a8nr" path="res://assets/models/buildings/Pager_Bandara.glb" id="3_lqw01"]
+[ext_resource type="PackedScene" uid="uid://dgjbfx0p87qxv" path="res://assets/models/buildings/pohon1.glb" id="4_0o3gk"]
+[ext_resource type="PackedScene" uid="uid://dawfppedb2mty" path="res://assets/models/buildings/Menara_Radio.glb" id="5_1jl3r"]
+[ext_resource type="PackedScene" uid="uid://0obhikykee1l" path="res://assets/models/buildings/house.glb" id="6_tsqld"]
+
+[node name="buildings" type="Node3D" unique_id=445261768]
+
+[node name="Pesawat" parent="." unique_id=1735327100 instance=ExtResource("1_13n77")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 65.91785, 0, 60.46654)
+
+[node name="pohon2" parent="." unique_id=1568100230 instance=ExtResource("2_8vctf")]
+transform = Transform3D(2.75, 0, 0, 0, 2.75, 0, 0, 0, 2.75, 13.533789, 5.152959, 0)
+
+[node name="Pager_Bandara" parent="." unique_id=973675067 instance=ExtResource("3_lqw01")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -8.625929, -1.1988535, 0)
+
+[node name="pohon1" parent="." unique_id=953918496 instance=ExtResource("4_0o3gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.221039, 6.476103, 0)
+
+[node name="Menara_Radio" parent="." unique_id=176980480 instance=ExtResource("5_1jl3r")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -30.056389, 3.5206351, -0.3068018)
+
+[node name="house" parent="." unique_id=1569607373 instance=ExtResource("6_tsqld")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 3.914648, 0)

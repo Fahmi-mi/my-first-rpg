@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://c41mykv688cxe" path="res://src/entities/player/player.tscn" id="1_fgwm0"]
 [ext_resource type="Shader" uid="uid://dwvm8rnku41lu" path="res://src/world/main_world.gdshader" id="2_xuo2k"]
+[ext_resource type="MeshLibrary" uid="uid://dwcxhirfi2ge6" path="res://src/world/BuildingsLib.meshlib" id="3_nppra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4vx48"]
-sky_top_color = Color(0.22852087, 0.3044782, 0.3863558, 1)
-sky_horizon_color = Color(0.21063557, 0.43317127, 0.5712888, 1)
-ground_bottom_color = Color(0.26869217, 0.2745614, 0.24212515, 1)
-ground_horizon_color = Color(0.24435142, 0.2731712, 0.21868303, 1)
+sky_top_color = Color(0.13725491, 0.14901961, 0.43137255, 1)
+sky_horizon_color = Color(0.13525349, 0.18557018, 0.41575658, 1)
+ground_bottom_color = Color(0.008032881, 0.03204107, 0.035258397, 1)
+ground_horizon_color = Color(0.08174694, 0.18519992, 0.17056206, 1)
 
 [sub_resource type="Sky" id="Sky_kk5x8"]
 sky_material = SubResource("ProceduralSkyMaterial_4vx48")
@@ -15,20 +16,20 @@ sky_material = SubResource("ProceduralSkyMaterial_4vx48")
 [sub_resource type="Environment" id="Environment_w8cqn"]
 background_mode = 2
 sky = SubResource("Sky_kk5x8")
-tonemap_mode = 3
+tonemap_mode = 2
 fog_enabled = true
-fog_light_color = Color(0.46566194, 0.3909829, 0.3773933, 1)
-fog_light_energy = 0.5
-fog_sun_scatter = 0.15
-fog_density = 0.0202
-adjustment_enabled = true
+fog_light_color = Color(0.6264593, 0.5208215, 0.5286749, 1)
+fog_light_energy = 0.14
+fog_density = 0.003
+fog_sky_affect = 0.936
+adjustment_brightness = 0.92
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0bqfg"]
 render_priority = 0
 shader = ExtResource("2_xuo2k")
 shader_parameter/map_size = Vector2(400, 360)
 shader_parameter/concrete_color = Color(0.84113896, 0.7657963, 0.63311166, 1)
-shader_parameter/forest_color = Color(0.29580918, 0.36646912, 0.21004367, 1)
+shader_parameter/forest_color = Color(0.29411766, 0.3647059, 0.21176471, 1)
 shader_parameter/split_position = 0.50000002375
 shader_parameter/smoothness = 0.02000000095
 shader_parameter/road_color = Color(0.16, 0.16, 0.18, 1)
@@ -42,15 +43,22 @@ shader_parameter/gate_color = Color(1, 0.9, 0.1, 1)
 shader_parameter/mountain_guide_color = Color(0.2, 0.8, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jslb0"]
-shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nppra"]
+albedo_color = Color(0.29411766, 0.3647059, 0.21176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j47dn"]
+albedo_color = Color(0.29411766, 0.3647059, 0.21176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47hcm"]
+albedo_color = Color(0.29411766, 0.3647059, 0.21176471, 1)
 
 [node name="MainWorld" type="Node3D" unique_id=395283284]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=844469281]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
-light_color = Color(0.8667239, 0.6958924, 0.66355306, 1)
-light_energy = 0.25
+light_energy = 1.883
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1636591441]
 environment = SubResource("Environment_w8cqn")
@@ -67,25 +75,55 @@ material = SubResource("ShaderMaterial_0bqfg")
 [node name="BoundaryBox" type="Node" parent="." unique_id=464206800]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BoundaryBox" unique_id=1540192872]
-transform = Transform3D(1.2641495, 2.385517e-07, 5.9080555e-20, -1.1051552e-07, 2.7287133, 6.55671e-08, -9.661582e-15, 2.3855176e-07, -0.7500003, -144.2375, 42.951767, 14.621804)
+transform = Transform3D(1.2641495, 4.1202426e-07, -3.2327596e-21, -1.9088128e-07, 2.7287133, 6.556713e-08, -1.6687383e-14, 2.3855176e-07, -0.7500003, -144.26865, 10.784683, 14.368222)
 layers = 513
-size = Vector3(400, 50, 1)
+size = Vector3(400, 10, 1)
 material = SubResource("StandardMaterial3D_jslb0")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="BoundaryBox" unique_id=1638809611]
-transform = Transform3D(-5.5257743e-08, 1.0427425e-14, -0.7500003, 1.1051549e-07, 2.7287133, 0, -1.2641498, 2.3855168e-07, 3.2783554e-08, 13.609505, 42.951767, -126.861946)
+transform = Transform3D(-5.5257743e-08, 1.0427425e-14, -0.7500003, 1.1051549e-07, 2.7287133, 0, -1.2641498, 2.3855168e-07, 3.2783554e-08, 13.578354, 10.784683, -127.454155)
 layers = 513
-size = Vector3(400, 50, 1)
+size = Vector3(400, 10, 1)
 material = SubResource("StandardMaterial3D_jslb0")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="BoundaryBox" unique_id=1202760086]
-transform = Transform3D(1.2641499, 2.3855168e-07, 0, -1.10515494e-07, 2.7287133, 0, 0, 0, -0.7500003, -89.59533, 42.951767, -255.74222)
+transform = Transform3D(1.2641499, 2.3855168e-07, 0, -1.10515494e-07, 2.7287133, 0, 0, 0, -0.7500003, -89.62648, 10.784683, -256.3344)
 layers = 513
-size = Vector3(400, 50, 1)
+size = Vector3(400, 10, 1)
 material = SubResource("StandardMaterial3D_jslb0")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="BoundaryBox" unique_id=1599607944]
-transform = Transform3D(-5.5257747e-08, 1.04274245e-14, -0.7500003, 1.10515494e-07, 2.728713, 0, -1.2641499, 2.3855168e-07, 3.2783554e-08, -287.11786, 42.951767, -104.84212)
+transform = Transform3D(-5.5257747e-08, 1.801015e-14, -0.7500003, 1.9088132e-07, 2.728713, 0, -1.2641499, 4.120242e-07, 3.2783554e-08, -287.14902, 10.784683, -105.434326)
 layers = 513
-size = Vector3(400, 50, 1)
+size = Vector3(400, 10, 1)
 material = SubResource("StandardMaterial3D_jslb0")
+
+[node name="Mountain" type="CSGCombiner3D" parent="." unique_id=1603593587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.374054, 0)
+autosmooth = true
+smoothing_angle = 20.0
+use_collision = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Mountain" unique_id=911253997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.47807, 0, -62.904003)
+radius = 42.295
+material = SubResource("StandardMaterial3D_nppra")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Mountain" unique_id=1026685832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -239.39076, 0, -164.27592)
+radius = 23.67
+material = SubResource("StandardMaterial3D_j47dn")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Mountain" unique_id=557780228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -226.25148, 0, -184.04552)
+radius = 15.596
+material = SubResource("StandardMaterial3D_j47dn")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Mountain" unique_id=1609868893]
+transform = Transform3D(0.94130075, 0.33756897, -1.4755609e-08, 0, -4.371138e-08, -1, -0.33756897, 0.94130075, -4.114556e-08, -227.2159, 0, -116.36956)
+radius = 16.154
+height = 70.407
+material = SubResource("StandardMaterial3D_47hcm")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1557161759]
+mesh_library = ExtResource("3_nppra")

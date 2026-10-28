@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdhanuki0qaqi"
-path="res://.godot/imported/Tree-1.png-5bd921c442dd162a5227cb6394001896.ctex"
+uid="uid://btcyxdixxotcr"
+path="res://.godot/imported/Shoe.png-c02858a90b4c5c1f24a32271b4cb3ad6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/Tree-1.png"
-dest_files=["res://.godot/imported/Tree-1.png-5bd921c442dd162a5227cb6394001896.ctex"]
+source_file="res://assets/models/object/Shoe.png"
+dest_files=["res://.godot/imported/Shoe.png-c02858a90b4c5c1f24a32271b4cb3ad6.ctex"]
 
 [params]
 

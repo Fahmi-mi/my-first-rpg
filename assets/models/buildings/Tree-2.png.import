@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btcyxdixxotcr"
-path="res://.godot/imported/Shoe.png-cae0ee30fb0046dcd3b2756b7eba6c96.ctex"
+uid="uid://cwmig783nrmi2"
+path="res://.godot/imported/Tree-2.png-83dabfc0dd64755d76fb2f933a3e0549.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/Shoe.png"
-dest_files=["res://.godot/imported/Shoe.png-cae0ee30fb0046dcd3b2756b7eba6c96.ctex"]
+source_file="res://assets/models/buildings/Tree-2.png"
+dest_files=["res://.godot/imported/Tree-2.png-83dabfc0dd64755d76fb2f933a3e0549.ctex"]
 
 [params]
 
