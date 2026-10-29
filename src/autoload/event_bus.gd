@@ -10,6 +10,7 @@ signal game_ended(ending_name: String)
 
 # tegar's whisper of thoughts
 signal voice_triggered(audio_key: String)
+signal whisper_effect_triggered(color: Color, duration: float)
 
 # inventory
 signal inventory_updated(slots: Array)
