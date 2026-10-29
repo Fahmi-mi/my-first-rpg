@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @export var min_delay: float = 0.1
 @export var max_delay: float = 0.35
+@onready var inventory: PlayerInventory = $Inventory
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -17,6 +18,8 @@ var is_locked: bool = false
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var see_cast: RayCast3D = %SeeCast
+@onready var hand: Node3D = $Head/Camera3D/Hand
 
 @onready var health_component: HealthComponent = $HealthComponent
 
@@ -25,6 +28,7 @@ func _ready() -> void:
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
 	EventBus.captcha_resolved.connect(func(_success): is_locked = false)
+	EventBus.item_drop.connect(drop_from_player)
 	
 	health_component.damage_taken.connect(_on_damage_taken)
 	health_component.died.connect(_on_died)
@@ -56,10 +60,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
+	var object = see_cast.get_collider()
 	if event.is_action_pressed("interact"):
-		EventBus.interaction_attempted.emit("test_object")
+		if object == null:
+			return 
+		elif see_cast.is_colliding() and object.is_in_group("interactable"):
+			print(object)
+			if object.has_method("interact"):
+				inventory.add_item(object.item_data)
+				inventory._select_slot(inventory.active_slot_index)
+				object.free()
+			else:
+				print("Ga punya")
+	
+	if event.is_action_pressed("drop"):
+		inventory.drop_item()
+			
 
 func _physics_process(delta: float) -> void:
+	
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
@@ -99,3 +121,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, move_speed)
 		
 	move_and_slide()
+
+func drop_from_player(item):
+	var forward = -transform.basis.z.normalized()
+	var drop_pos = global_position + forward * 2.0
+	item.global_position = drop_pos

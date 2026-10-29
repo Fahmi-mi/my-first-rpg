@@ -30,5 +30,21 @@ func add_item(item: ItemData) -> bool:
 			return true
 	return false
 	
+func spawn_item(item: ItemData):
+	var interactable = item.interactable_scene.instantiate()
+	interactable.item_data = item
+	get_tree().current_scene.add_child(interactable)
+	EventBus.item_drop.emit(interactable)
+	
+func drop_item():
+	if slots[active_slot_index]:
+		var dropped_item = slots[active_slot_index]
+		spawn_item(dropped_item)
+		slots[active_slot_index] = null
+		_select_slot(active_slot_index)
+		EventBus.inventory_updated.emit(slots)
+		
+	
+	
 func _update_ui() -> void:
 	EventBus.inventory_updated.emit(slots)

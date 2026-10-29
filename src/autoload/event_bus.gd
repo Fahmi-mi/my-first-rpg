@@ -15,3 +15,4 @@ signal whisper_effect_triggered(color: Color, duration: float)
 # inventory
 signal inventory_updated(slots: Array)
 signal inventory_slot_selected(active_index: int)
+signal item_drop(item: ItemData)

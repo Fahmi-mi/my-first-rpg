@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bfwyxq2em0jhy"]
+
+[ext_resource type="Texture2D" uid="uid://b1e08jouuaa5k" path="res://assets/placeholders/ikat-pinggang.png" id="1_ga3qt"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="2_5lrth"]
+
+[resource]
+script = ExtResource("2_5lrth")
+id = "jsajfnjd"
+item_name = "ikat pinggang"
+icon = ExtResource("1_ga3qt")
+metadata/_custom_type_script = "uid://v0afeq406dv6"

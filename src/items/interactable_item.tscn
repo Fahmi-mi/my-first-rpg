@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://5ppeyxba8jne"]
+
+[ext_resource type="Script" uid="uid://ys46c7ppghf4" path="res://src/items/interactables.gd" id="1_1emrd"]
+
+[node name="Interactables" type="RigidBody3D" unique_id=2035168717 groups=["interactable"]]
+script = ExtResource("1_1emrd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=641393229]
