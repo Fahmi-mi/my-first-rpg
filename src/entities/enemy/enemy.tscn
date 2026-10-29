@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dr1smsgkex7vh"]
+
+[ext_resource type="Script" uid="uid://beuytmpglhgwg" path="res://src/core/health_component.gd" id="1_toqcl"]
+[ext_resource type="Script" uid="uid://csjm0h2mjilsy" path="res://src/entities/enemy/enemy.gd" id="1_vg1v2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8cqn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vx48"]
+albedo_color = Color(0.88235295, 0.101960786, 0.27058825, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kk5x8"]
+material = SubResource("StandardMaterial3D_4vx48")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iisqv"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fq4t4"]
+material = SubResource("StandardMaterial3D_iisqv")
+size = Vector3(0.08, 0.6, 0.08)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=37569293]
+script = ExtResource("1_vg1v2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1086765570]
+shape = SubResource("CapsuleShape3D_w8cqn")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=391550490]
+script = ExtResource("1_toqcl")
+max_health = 40
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2013923572]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Visuals" unique_id=2111908857]
+mesh = SubResource("CapsuleMesh_kk5x8")
+
+[node name="HandHolder" type="Node3D" parent="Visuals" unique_id=1029128696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.2, -0.4)
+
+[node name="WeaponMesh" type="MeshInstance3D" parent="Visuals/HandHolder" unique_id=110672972]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+mesh = SubResource("BoxMesh_fq4t4")

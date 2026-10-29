@@ -24,6 +24,7 @@ var is_locked: bool = false
 @onready var health_component: HealthComponent = $HealthComponent
 
 func _ready() -> void:
+	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
@@ -78,7 +79,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 
 func _physics_process(delta: float) -> void:
-	
 	if %SeeCast.is_colliding():
 		var target = %SeeCast.get_collider()
 	
