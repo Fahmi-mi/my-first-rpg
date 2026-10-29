@@ -7,12 +7,12 @@ func _ready() -> void:
 	spawn_item(item_data.mesh_scene)
 	
 func interact(player: CharacterBody3D): 
-	var success: bool = player.Inventory.add_items(item_data)
+	#var success: bool = PlayerInventory.add_items(item_data)
 	EventBus.interaction_attempted.emit("Take a " + item_data.item_name)
-	if success:
-		queue_free()
-	else:
-		print("Item penuh")
+	#if success:
+		#queue_free()
+	#else:
+		#print("Item penuh")
 		
 
 func find_first_mesh_instance(node : Node) -> MeshInstance3D:

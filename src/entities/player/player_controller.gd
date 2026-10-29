@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @export var min_delay: float = 0.1
 @export var max_delay: float = 0.35
+@onready var inventory: PlayerInventory = $Inventory
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -25,6 +26,7 @@ func _ready() -> void:
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
 	EventBus.captcha_resolved.connect(func(_success): is_locked = false)
+	EventBus.item_drop.connect(drop_from_player)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if is_locked:
@@ -43,12 +45,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 	var object = see_cast.get_collider()
 	if event.is_action_pressed("interact"):
-		print(object)
 		if object == null:
 			return 
 		elif see_cast.is_colliding() and object.is_in_group("interactable"):
-			if has_method("interact"):
-				object.interact()
+			print(object)
+			if object.has_method("interact"):
+				inventory.add_item(object.item_data)
+				inventory._select_slot(inventory.active_slot_index)
+				object.free()
+			else:
+				print("Ga punya")
+	
+	if event.is_action_pressed("drop"):
+		inventory.drop_item()
 			
 
 func _physics_process(delta: float) -> void:
@@ -91,3 +100,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, move_speed)
 		
 	move_and_slide()
+
+func drop_from_player(item):
+	var forward = -transform.basis.z.normalized()
+	var drop_pos = global_position + forward * 2.0
+	item.global_position = drop_pos

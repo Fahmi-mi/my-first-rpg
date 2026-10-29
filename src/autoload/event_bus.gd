@@ -14,3 +14,4 @@ signal voice_triggered(audio_key: String)
 # inventory
 signal inventory_updated(slots: Array)
 signal inventory_slot_selected(active_index: int)
+signal item_drop(item: ItemData)

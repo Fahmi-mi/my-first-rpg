@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c41mykv688cxe"]
 
 [ext_resource type="Script" uid="uid://5kyst5yf7t4l" path="res://src/entities/player/player_controller.gd" id="1_4m8ck"]
+[ext_resource type="Script" uid="uid://bgrabyr410xk5" path="res://src/entities/player/hand.gd" id="2_ketdh"]
 [ext_resource type="Script" uid="uid://cr8d614m2l6ds" path="res://src/entities/player/player_inventory.gd" id="2_vt6n5"]
 [ext_resource type="PackedScene" uid="uid://bdl2glnar40nr" path="res://src/ui/hud/inventory_hud.tscn" id="3_muk8e"]
 [ext_resource type="PackedScene" uid="uid://c5oage2p1tcm5" path="res://src/ui/captcha/captcha_popup.tscn" id="4_wrxq6"]
@@ -25,7 +26,8 @@ transform = Transform3D(0.007121521, -0.14618863, -4.384532, 0.8968016, 0.166212
 collision_mask = 3
 
 [node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1143117086]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1292118, -0.07147527, -2.2387598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552983, -0.44287002, -2.2387598)
+script = ExtResource("2_ketdh")
 
 [node name="Inventory" type="Node" parent="." unique_id=1068612398]
 script = ExtResource("2_vt6n5")

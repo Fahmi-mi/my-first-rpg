@@ -32,6 +32,8 @@ text = "W"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot0" unique_id=1762134953]
 layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Slot1" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=214146089]
 custom_minimum_size = Vector2(50, 50)
@@ -43,6 +45,8 @@ text = "A"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot1" unique_id=2141241803]
 layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Slot2" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1863789936]
 custom_minimum_size = Vector2(50, 50)
@@ -54,6 +58,8 @@ text = "S"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot2" unique_id=1488429103]
 layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Slot3" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1923077038]
 custom_minimum_size = Vector2(50, 50)
@@ -65,3 +71,5 @@ text = "D"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Slot3" unique_id=1048376605]
 layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
