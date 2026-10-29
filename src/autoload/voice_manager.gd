@@ -47,7 +47,7 @@ func play_whisper(trigger_key: String, personality: Personality = Personality.NO
 	var duration: float = 2.5
 	
 	if stream != null:
-		audio_player.stream
+		audio_player.stream = stream
 		audio_player.play()
 		if stream.get_length() > 0:
 			duration = stream.get_length()
