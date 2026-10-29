@@ -73,6 +73,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		#test audio function
 		#VoiceManager.play_voice("test_audio")
+		#test color filter audio
+		VoiceManager.play_whisper("test_audio", VoiceManager.Personality.BRAVE, false)
 		
 	var raw_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
