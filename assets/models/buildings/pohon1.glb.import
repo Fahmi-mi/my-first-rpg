@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dgjbfx0p87qxv"
+uid="uid://d3kjromnojavg"
 path="res://.godot/imported/pohon1.glb-6b599b47e7246fed3742036aa312e02d.scn"
 
 [deps]
@@ -41,7 +41,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Plane": {
+"PATH:pohon2": {
 "generate/physics": true
 }
 }

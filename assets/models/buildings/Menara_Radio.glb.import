@@ -66,6 +66,9 @@ _subresources={
 "generate/physics": true,
 "import/skip_import": true
 },
+"PATH:Empty_001": {
+"import/skip_import": true
+},
 "PATH:Radio Tower": {
 "generate/physics": true
 },

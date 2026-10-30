@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://dcr7076fpmaka"]
+
+[ext_resource type="PackedScene" uid="uid://cqyk720r3a8nr" path="res://assets/models/buildings/Pager_Bandara.glb" id="1_h5xky"]
+[ext_resource type="PackedScene" uid="uid://d2bkqd7dbd5hl" path="res://assets/models/buildings/Pesawat.glb" id="2_ma1js"]
+[ext_resource type="Texture2D" uid="uid://jd8qdqllv2bh" path="res://assets/models/buildings/airport_buildings.png" id="3_f0vea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsqr6"]
+albedo_color = Color(0.69803923, 0.69803923, 0.69803923, 1)
+albedo_texture = ExtResource("3_f0vea")
+
+[node name="bandara" type="Node3D" unique_id=1534675999]
+
+[node name="pager_bandara" type="Node3D" parent="." unique_id=83836202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69143677, 2.3841858e-07, -0.88124084)
+
+[node name="Pager_Bandara" parent="pager_bandara" unique_id=137987314 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.493645, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara2" parent="pager_bandara" unique_id=1753679513 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.2182732, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara3" parent="pager_bandara" unique_id=1017785424 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -10.982253, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara4" parent="pager_bandara" unique_id=1579379600 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.846668, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara5" parent="pager_bandara" unique_id=192175959 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -30.70788, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara6" parent="pager_bandara" unique_id=1352052650 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.56566, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara7" parent="pager_bandara" unique_id=458093159 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -50.440956, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara8" parent="pager_bandara" unique_id=1501367429 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -60.248283, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara9" parent="pager_bandara" unique_id=797481087 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.09029, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara10" parent="pager_bandara" unique_id=98930341 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -79.91197, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara11" parent="pager_bandara" unique_id=1132375719 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -89.55443, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara12" parent="pager_bandara" unique_id=1045298202 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -99.28695, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara13" parent="pager_bandara" unique_id=74362440 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -109.247665, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara14" parent="pager_bandara" unique_id=202554722 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -119.035126, 0.7792138, -161.27328)
+
+[node name="pager_bandara4" type="Node3D" parent="." unique_id=474469351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69143677, 2.3841858e-07, -88.87732)
+
+[node name="Pager_Bandara" parent="pager_bandara4" unique_id=1670775785 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 8.493645, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara2" parent="pager_bandara4" unique_id=870128657 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.2182732, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara3" parent="pager_bandara4" unique_id=1703440121 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -10.982253, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara4" parent="pager_bandara4" unique_id=1657777014 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.846668, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara5" parent="pager_bandara4" unique_id=1182458095 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -30.70788, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara6" parent="pager_bandara4" unique_id=2024711405 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.56566, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara7" parent="pager_bandara4" unique_id=1330762078 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -50.440956, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara8" parent="pager_bandara4" unique_id=1815371405 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -60.248283, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara9" parent="pager_bandara4" unique_id=1318540087 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.09029, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara10" parent="pager_bandara4" unique_id=177509569 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -79.91197, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara11" parent="pager_bandara4" unique_id=707099174 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -89.55443, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara12" parent="pager_bandara4" unique_id=134703045 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -99.28695, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara13" parent="pager_bandara4" unique_id=1181977271 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -109.247665, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara14" parent="pager_bandara4" unique_id=1299940632 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -119.035126, 0.7792138, -161.27328)
+
+[node name="pager_bandara2" type="Node3D" parent="." unique_id=1991845757]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32.422287, 2.3841858e-07, -290.59015)
+
+[node name="Pager_Bandara6" parent="pager_bandara2" unique_id=170378106 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.56566, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara7" parent="pager_bandara2" unique_id=1998863348 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -50.440956, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara8" parent="pager_bandara2" unique_id=778715854 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -60.248283, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara9" parent="pager_bandara2" unique_id=1074410738 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.09029, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara10" parent="pager_bandara2" unique_id=887968151 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -79.91197, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara11" parent="pager_bandara2" unique_id=1823089786 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -89.55443, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara12" parent="pager_bandara2" unique_id=1020100590 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -99.28695, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara13" parent="pager_bandara2" unique_id=580535691 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -109.247665, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara14" parent="pager_bandara2" unique_id=468210146 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -119.035126, 0.7792138, -161.27328)
+
+[node name="pager_bandara3" type="Node3D" parent="." unique_id=1750204260]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -151.57184, 2.3841858e-07, -122.18239)
+
+[node name="Pager_Bandara6" parent="pager_bandara3" unique_id=54827211 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -40.56566, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara7" parent="pager_bandara3" unique_id=2131447121 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -50.440956, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara8" parent="pager_bandara3" unique_id=237845965 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -60.248283, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara9" parent="pager_bandara3" unique_id=1878938606 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -70.09029, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara10" parent="pager_bandara3" unique_id=921980389 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -79.91197, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara11" parent="pager_bandara3" unique_id=1290477274 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -89.55443, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara12" parent="pager_bandara3" unique_id=822404580 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -99.28695, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara13" parent="pager_bandara3" unique_id=822128112 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -109.247665, 0.7792138, -161.27328)
+
+[node name="Pager_Bandara14" parent="pager_bandara3" unique_id=1126146445 instance=ExtResource("1_h5xky")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -119.035126, 0.7792138, -161.27328)
+
+[node name="Pesawat" parent="." unique_id=654202718 instance=ExtResource("2_ma1js")]
+transform = Transform3D(1.767767, 0.09251778, -1.7653441, 0, 2.4965737, 0.1308399, 1.767767, -0.09251778, 1.7653441, -52.060734, 8.025792, -184.005)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=130722041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8042908, 2.3841858e-07, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1056043573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.1818, 13.364117, -179.34337)
+size = Vector3(20, 25, 20)
+material = SubResource("StandardMaterial3D_nsqr6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1334804208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.428154, 7.762697, -177.97568)
+size = Vector3(20, 15, 15)
+material = SubResource("StandardMaterial3D_nsqr6")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=630192845]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -110.7184, 10.172094, -216.69617)
+size = Vector3(56, 20, 16)
+material = SubResource("StandardMaterial3D_nsqr6")
