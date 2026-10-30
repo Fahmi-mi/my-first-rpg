@@ -5,6 +5,9 @@ signal interaction_attempted(interactable_name: String)
 signal captcha_triggered
 signal captcha_resolved(success: bool)
 
+# combat
+signal enemy_defeated(enemy_id)
+
 # game state and ending
 signal game_ended(ending_name: String)
 

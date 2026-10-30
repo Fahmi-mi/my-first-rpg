@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c41mykv688cxe"]
 
 [ext_resource type="Script" uid="uid://5kyst5yf7t4l" path="res://src/entities/player/player_controller.gd" id="1_4m8ck"]
-[ext_resource type="Script" uid="uid://bgrabyr410xk5" path="res://src/entities/player/hand.gd" id="2_ketdh"]
 [ext_resource type="Script" uid="uid://dbh1b7d7ads3d" path="res://src/ui/hud/whisper_overlay.gd" id="1_oih67"]
+[ext_resource type="Script" uid="uid://bgrabyr410xk5" path="res://src/entities/player/hand.gd" id="2_ketdh"]
 [ext_resource type="Script" uid="uid://cr8d614m2l6ds" path="res://src/entities/player/player_inventory.gd" id="2_vt6n5"]
 [ext_resource type="PackedScene" uid="uid://bdl2glnar40nr" path="res://src/ui/hud/inventory_hud.tscn" id="3_muk8e"]
 [ext_resource type="PackedScene" uid="uid://c5oage2p1tcm5" path="res://src/ui/captcha/captcha_popup.tscn" id="4_wrxq6"]
