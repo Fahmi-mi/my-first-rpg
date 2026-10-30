@@ -20,7 +20,7 @@ var is_locked: bool = false
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var see_cast: RayCast3D = %SeeCast
 @onready var hand: Node3D = $Head/Camera3D/Hand
-
+@onready var guide_canvas: CanvasLayer = $GuideCanvas
 @onready var health_component: HealthComponent = $HealthComponent
 
 func _ready() -> void:
@@ -60,28 +60,44 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			
+
 	var object = see_cast.get_collider()
+	# Visual Trigger
+	if see_cast.is_colliding():
+		if object.has_method("check_valid") and object.is_in_group("interactable"):
+			var display = object.check_valid(
+				inventory.slots[inventory.active_slot_index]
+			)
+			EventBus.guidance_text.emit(display)
+		else:
+			EventBus.stop_guidance_text.emit()
+	else:
+		EventBus.stop_guidance_text.emit()
+	
+	# Interact Trigger
 	if event.is_action_pressed("interact"):
 		if object == null:
 			return 
-		elif see_cast.is_colliding() and object.is_in_group("interactable"):
-			print(object)
+		elif see_cast.is_colliding() and object.is_in_group("interactable"):				
 			if object.has_method("interact"):
-				inventory.add_item(object.item_data)
-				inventory._select_slot(inventory.active_slot_index)
-				object.free()
+				if object.is_in_group("quest_item"):
+					object.interact()
+				else:
+					inventory.add_item(object.item_data)
+					inventory._select_slot(inventory.active_slot_index)
+					object.free()
+			elif object.has_method("trigger_quest"):
+				object.trigger_quest(
+					inventory.slots[inventory.active_slot_index]
+				)
 			else:
 				print("Ga punya")
-	
+
 	if event.is_action_pressed("drop"):
 		inventory.drop_item()
 			
 
 func _physics_process(delta: float) -> void:
-	if %SeeCast.is_colliding():
-		var target = %SeeCast.get_collider()
-	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		

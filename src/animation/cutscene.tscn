@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b7x10ax8iwj7n"]
+
+[ext_resource type="Script" uid="uid://dm3s6krj8xsrn" path="res://src/animation/new_cutscene.gd" id="1_p2blu"]
+[ext_resource type="VideoStream" uid="uid://fpo3rq27t6gv" path="res://assets/placeholders/sample_240p.ogv" id="2_ccce2"]
+[ext_resource type="VideoStream" uid="uid://dl65thira2fp7" path="res://assets/placeholders/sample_1080p.ogv" id="3_p5c2m"]
+
+[node name="NewCutscene" type="CanvasLayer" unique_id=322867943]
+layer = 2
+script = ExtResource("1_p2blu")
+ending_videos = Dictionary[int, VideoStream]({
+0: ExtResource("2_ccce2"),
+1: ExtResource("2_ccce2"),
+2: ExtResource("3_p5c2m"),
+3: ExtResource("3_p5c2m")
+})
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="." unique_id=450811311]
+z_index = 99
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand = true
+
+[connection signal="finished" from="VideoPlayer" to="." method="_on_animation_player_finished"]
