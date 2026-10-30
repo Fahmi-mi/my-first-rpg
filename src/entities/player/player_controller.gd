@@ -6,6 +6,12 @@ extends CharacterBody3D
 
 @export var min_delay: float = 0.1
 @export var max_delay: float = 0.35
+
+@export var can_unarmed_attack: bool = true
+@export var unarmed_damage: int = 5
+@export var attack_range: float = 2.0
+@export var attack_cooldown: float = 0.35
+
 @onready var inventory: PlayerInventory = $Inventory
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -15,6 +21,7 @@ var target_input_dir: Vector2 = Vector2.ZERO
 var delayed_input_dir: Vector2 = Vector2.ZERO
 
 var is_locked: bool = false
+var attack_timer: float = 0.0
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
@@ -61,6 +68,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			use_active_item()
+			
 	var object = see_cast.get_collider()
 	if event.is_action_pressed("interact"):
 		if object == null:
@@ -73,14 +84,60 @@ func _unhandled_input(event: InputEvent) -> void:
 				object.free()
 			else:
 				print("Ga punya")
-	
+				
 	if event.is_action_pressed("drop"):
 		inventory.drop_item()
 			
-
+func use_active_item() -> void:
+	var item: ItemData = inventory.get_active_item()
+	
+	if item == null:
+		if can_unarmed_attack:
+			_perform_attack(unarmed_damage)
+		return
+		
+	match item.item_type:
+		ItemData.ItemType.HEALING:
+			_use_healing_item(item)
+		ItemData.ItemType.WEAPON:
+			_perform_attack(item.damage)
+			
+func _use_healing_item(item: ItemData) -> void:
+	if health_component.current_health >= health_component.max_health:
+		return
+		
+	health_component.heal(item.heal_amount)
+	inventory.consume_active_item()
+	
+func _perform_attack(damage_amount: int) -> void:
+	if attack_timer > 0.0:
+		return
+		
+	attack_timer = attack_cooldown
+	
+	if hand.has_method("play_attack_animation"):
+		hand.play_attack_animation()
+		
+	var space_state = get_world_3d().direct_space_state
+	var origin = camera.global_position
+	var target = origin - camera.global_transform.basis.z * attack_range
+	var query = PhysicsRayQueryParameters3D.create(origin, target)
+	query.exclude = [self.get_rid()]
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var collider = result.collider
+		if collider:
+			var target_health: HealthComponent = collider.get_node_or_null("HealthComponent")
+			if target_health:
+				target_health.take_damage(damage_amount)
+	
 func _physics_process(delta: float) -> void:
 	if %SeeCast.is_colliding():
 		var target = %SeeCast.get_collider()
+		
+	if attack_timer > 0.0:
+		attack_timer -= delta
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta

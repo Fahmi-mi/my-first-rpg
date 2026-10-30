@@ -30,6 +30,14 @@ func add_item(item: ItemData) -> bool:
 			return true
 	return false
 	
+func get_active_item() -> ItemData:
+	return slots[active_slot_index]
+	
+func consume_active_item() -> void:
+	if slots[active_slot_index]:
+		slots[active_slot_index] = null
+		_select_slot(active_slot_index)
+	
 func spawn_item(item: ItemData):
 	var interactable = item.interactable_scene.instantiate()
 	interactable.item_data = item
@@ -44,7 +52,5 @@ func drop_item():
 		_select_slot(active_slot_index)
 		EventBus.inventory_updated.emit(slots)
 		
-	
-	
 func _update_ui() -> void:
 	EventBus.inventory_updated.emit(slots)
