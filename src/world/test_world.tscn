@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://5iwgsni1iake"]
 
+[ext_resource type="Script" uid="uid://b7rvon5j3weej" path="res://src/quests/quest_management.gd" id="1_maara"]
 [ext_resource type="PackedScene" uid="uid://c41mykv688cxe" path="res://src/entities/player/player.tscn" id="1_ufmjq"]
 [ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_0fwu5"]
 [ext_resource type="Resource" uid="uid://crm6sr1axdpaa" path="res://src/resources/baju.tres" id="3_qenvy"]
 [ext_resource type="Resource" uid="uid://wjpbwngaua5y" path="res://src/resources/obat.tres" id="4_mi5yt"]
 [ext_resource type="PackedScene" uid="uid://dr1smsgkex7vh" path="res://src/entities/enemy/enemy.tscn" id="4_qenvy"]
+[ext_resource type="PackedScene" uid="uid://blyeq5n2f3erk" path="res://src/quests/motorcycle.tscn" id="5_mi5yt"]
+[ext_resource type="Resource" uid="uid://do7c7hmbq17ol" path="res://src/resources/fuel.tres" id="6_hcmtl"]
+[ext_resource type="PackedScene" uid="uid://b7x10ax8iwj7n" path="res://src/animation/cutscene.tscn" id="7_e7n38"]
+[ext_resource type="PackedScene" uid="uid://v53ycs7cy5cb" path="res://src/quests/radio.tscn" id="8_eyewv"]
+[ext_resource type="PackedScene" uid="uid://cpwgam7yl1fdo" path="res://src/quests/airport_platform.tscn" id="10_vjq7d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4vx48"]
 
@@ -16,6 +22,11 @@ background_mode = 2
 sky = SubResource("Sky_kk5x8")
 
 [node name="TestWorld" type="Node3D" unique_id=395283284]
+
+[node name="NewCutscene" parent="." unique_id=281568471 instance=ExtResource("7_e7n38")]
+
+[node name="Quest" type="Node" parent="." unique_id=1587093218]
+script = ExtResource("1_maara")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=194946437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -43,3 +54,25 @@ item_data = ExtResource("4_mi5yt")
 
 [node name="Enemy" parent="." unique_id=37569293 instance=ExtResource("4_qenvy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+
+[node name="Motorcycle" parent="." unique_id=96038752 instance=ExtResource("5_mi5yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8011496, 1.1437707, -4.127602)
+
+[node name="Interactables3" parent="." unique_id=65747877 instance=ExtResource("2_0fwu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7899647, 0.46380424, -6.562352)
+item_data = ExtResource("6_hcmtl")
+
+[node name="Radio" parent="." unique_id=791627553 instance=ExtResource("8_eyewv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3917675, 1, -5.328171)
+
+[node name="Radio2" parent="." unique_id=1655112031 instance=ExtResource("8_eyewv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.937315, 1, 4.212282)
+
+[node name="Radio3" parent="." unique_id=1396689833 instance=ExtResource("8_eyewv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7129879, 1, 10.967821)
+
+[node name="Radio4" parent="." unique_id=918890978 instance=ExtResource("8_eyewv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3578758, 1, 7.8295116)
+
+[node name="AirportPlatform" parent="." unique_id=2123413759 instance=ExtResource("10_vjq7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7069435, 0.40017557, -0.6723039)

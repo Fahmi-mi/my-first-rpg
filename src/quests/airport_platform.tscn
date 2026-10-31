@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cpwgam7yl1fdo"]
+
+[ext_resource type="Script" uid="uid://4uvtpvceto2c" path="res://src/quests/airport_platform.gd" id="1_b8gug"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhl6c"]
+
+[node name="AirportPlatform" type="Area3D" unique_id=2123413759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6184292, 0)
+script = ExtResource("1_b8gug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1209537517]
+transform = Transform3D(0.54298055, 0, 0, 0, 0.3636484, 0, 0, 0, 0.99334794, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_rhl6c")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1809295086]
+transform = Transform3D(1, 0, 0, 0, -0.022019967, -0.9997576, 0, 0.9997576, -0.022019967, 0, 0, 0)
+light_color = Color(1, 1, 0, 1)
+light_energy = 7.164
+spot_range = 5.173
+spot_angle = 90.0
