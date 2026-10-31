@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bge4w0tfqkc85"
+path="res://.godot/imported/True 1.ogg-c9bedecd8edd9aa8174d7611052f1a5f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/voices/True 1.ogg"
+dest_files=["res://.godot/imported/True 1.ogg-c9bedecd8edd9aa8174d7611052f1a5f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
