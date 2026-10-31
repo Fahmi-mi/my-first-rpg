@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n2tgyor8qes5"
+path="res://.godot/imported/Tip - Jumping.ogg-fcc22b0b50ebfa478e00af3cd2438518.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/voices/Tip - Jumping.ogg"
+dest_files=["res://.godot/imported/Tip - Jumping.ogg-fcc22b0b50ebfa478e00af3cd2438518.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -13,6 +13,7 @@ extends CharacterBody3D
 @export var attack_cooldown: float = 0.35
 
 @onready var inventory: PlayerInventory = $Inventory
+@onready var WhisperTimer: Timer = $WhisperTimer
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -136,7 +137,7 @@ func _perform_attack(damage_amount: int) -> void:
 	
 	if hand.has_method("play_attack_animation"):
 		hand.play_attack_animation()
-		
+		VoiceManager.play_voice("Tip - punch", true)
 	var space_state = get_world_3d().direct_space_state
 	var origin = camera.global_position
 	var target = origin - camera.global_transform.basis.z * attack_range
@@ -168,11 +169,11 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		
 		velocity.y = jump_velocity
 		#test audio function
-		#VoiceManager.play_voice("test_audio")
+		VoiceManager.play_voice("Tip - Jumping", true)
 		#test color filter audio
-		VoiceManager.play_whisper("test_audio", VoiceManager.Personality.BRAVE, false)
 		
 	var raw_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
@@ -192,6 +193,7 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		velocity.x = direction.x * move_speed
 		velocity.z = direction.z * move_speed
+		VoiceManager.play_voice("Tip - walking", true)
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 		velocity.z = move_toward(velocity.z, 0, move_speed)
@@ -209,3 +211,20 @@ func _on_save_triggered() -> void:
 		"y": position[1],
 		"z": position[2]
 	}
+
+var WHISPERS = [
+	{'audio' : 'Savior-1', 'personality' : VoiceManager.Personality.BRAVE},
+	{'audio' : 'Savior-2', 'personality' : VoiceManager.Personality.BRAVE},
+	{'audio' : 'Escape 1', 'personality' : VoiceManager.Personality.ESCAPIST},
+	{'audio' : 'Escape 2', 'personality' : VoiceManager.Personality.ESCAPIST},
+	{'audio' : 'Popular 1', 'personality' : VoiceManager.Personality.POPULAR},
+	{'audio' : 'Popular 2', 'personality' : VoiceManager.Personality.POPULAR},
+	{'audio' : 'True 1', 'personality' : VoiceManager.Personality.HOMETOWN},
+	{'audio' : 'True 2', 'personality' : VoiceManager.Personality.HOMETOWN},
+]
+
+func _on_whisper_timer_timeout() -> void:
+	WhisperTimer.wait_time = randf_range(10.0, 20.0)
+	WhisperTimer.start()
+	var whisper = WHISPERS.pick_random()
+	VoiceManager.play_whisper(whisper.audio, whisper.personality, false)

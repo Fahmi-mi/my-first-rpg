@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dr8qo2op32k5w"
+path="res://.godot/imported/Tip 1.ogg-51612764b6c25610f2efcf7d0304c3b4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/voices/Tip 1.ogg"
+dest_files=["res://.godot/imported/Tip 1.ogg-51612764b6c25610f2efcf7d0304c3b4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
