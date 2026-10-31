@@ -22,6 +22,7 @@ var delayed_input_dir: Vector2 = Vector2.ZERO
 
 var is_locked: bool = false
 var attack_timer: float = 0.0
+var pending_action: Callable = Callable()
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
@@ -35,7 +36,13 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
-	EventBus.captcha_resolved.connect(func(_success): is_locked = false)
+	EventBus.captcha_resolved.connect(func(_success: bool):
+		is_locked = false
+		
+		if pending_action.is_valid():
+			pending_action.call()
+			pending_action = Callable()
+	)
 	EventBus.item_drop.connect(drop_from_player)
 	
 	health_component.damage_taken.connect(_on_damage_taken)
@@ -89,20 +96,28 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if object == null:
 			return 
-		elif see_cast.is_colliding() and object.is_in_group("interactable"):				
-			if object.has_method("interact"):
-				if object.is_in_group("quest_item"):
-					object.interact()
+		elif see_cast.is_colliding() and object.is_in_group("interactable"):
+			EventBus.interaction_attempted.emit(object.name)
+			
+			var action = func():
+				if object.has_method("interact"):
+					if object.is_in_group("quest_item"):
+						object.interact()
+					else:
+						inventory.add_item(object.item_data)
+						inventory._select_slot(inventory.active_slot_index)
+						object.free()
+				elif object.has_method("trigger_quest"):
+					object.trigger_quest(
+						inventory.slots[inventory.active_slot_index]
+					)
 				else:
-					inventory.add_item(object.item_data)
-					inventory._select_slot(inventory.active_slot_index)
-					object.free()
-			elif object.has_method("trigger_quest"):
-				object.trigger_quest(
-					inventory.slots[inventory.active_slot_index]
-				)
+					print("Ga punya")
+					
+			if not is_locked:
+				action.call()
 			else:
-				print("Ga punya")
+				pending_action = action
 				
 	if event.is_action_pressed("drop"):
 		inventory.drop_item()
