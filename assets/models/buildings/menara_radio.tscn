@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://yvlydj52jaa4"]
+
+[ext_resource type="PackedScene" uid="uid://dawfppedb2mty" path="res://assets/models/buildings/Menara_Radio.glb" id="1_mdnhl"]
+
+[node name="Menara_Radio" unique_id=184677274 instance=ExtResource("1_mdnhl")]
+
+[node name="Button" parent="." index="0" unique_id=1442219053]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
