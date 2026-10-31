@@ -54,3 +54,7 @@ func drop_item():
 		
 func _update_ui() -> void:
 	EventBus.inventory_updated.emit(slots)
+	
+func _on_save_triggered() -> void:
+	SaveSystem.content_to_save.inventory = slots
+	SaveSystem._save()
