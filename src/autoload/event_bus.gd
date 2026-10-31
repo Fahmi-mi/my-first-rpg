@@ -32,3 +32,6 @@ signal item_drop(item: ItemData)
 # quest
 signal on_enemy_killed(enemy_id: String)
 signal on_radio_activated(radio_id: String)
+
+# saving system
+signal save_triggered

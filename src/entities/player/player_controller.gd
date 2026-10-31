@@ -98,6 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 
 func _physics_process(delta: float) -> void:
+	print(position[0])
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
@@ -142,3 +143,10 @@ func drop_from_player(item):
 	var forward = -transform.basis.z.normalized()
 	var drop_pos = global_position + forward * 2.0
 	item.global_position = drop_pos
+
+func _on_save_triggered() -> void:
+	SaveSystem.content_to_save.position = {
+		"x": position[0],
+		"y": position[1],
+		"z": position[2]
+	}

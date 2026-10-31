@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://efnoet1u1445"
 VoiceManager="*uid://drgaujrg7sv1y"
+SaveSystem="*uid://cltvkdcdxls0i"
 
 [display]
 
