@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c41mykv688cxe"]
+
+[ext_resource type="Script" uid="uid://5kyst5yf7t4l" path="res://src/entities/player/player_controller.gd" id="1_4m8ck"]
+[ext_resource type="Script" uid="uid://dbh1b7d7ads3d" path="res://src/ui/hud/whisper_overlay.gd" id="1_oih67"]
+[ext_resource type="Script" uid="uid://bgrabyr410xk5" path="res://src/entities/player/hand.gd" id="2_ketdh"]
+[ext_resource type="Script" uid="uid://cr8d614m2l6ds" path="res://src/entities/player/player_inventory.gd" id="2_vt6n5"]
+[ext_resource type="PackedScene" uid="uid://bdl2glnar40nr" path="res://src/ui/hud/inventory_hud.tscn" id="3_muk8e"]
+[ext_resource type="PackedScene" uid="uid://c5oage2p1tcm5" path="res://src/ui/captcha/captcha_popup.tscn" id="4_wrxq6"]
+[ext_resource type="Script" uid="uid://beuytmpglhgwg" path="res://src/core/health_component.gd" id="5_ketdh"]
+[ext_resource type="PackedScene" uid="uid://ce4wecgbwiaes" path="res://src/ui/hud/health_bar.tscn" id="6_0mfjg"]
+[ext_resource type="PackedScene" uid="uid://s6o41skl3van" path="res://src/ui/hud/whisper_overlay.tscn" id="7_eb65w"]
+[ext_resource type="PackedScene" uid="uid://dflb2568pb6we" path="res://src/ui/hud/guide_canvas.tscn" id="10_tk761"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8cqn"]
+
+[node name="Player" type="CharacterBody3D" unique_id=964984718]
+script = ExtResource("1_4m8ck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1466092142]
+shape = SubResource("CapsuleShape3D_w8cqn")
+
+[node name="Head" type="Node3D" parent="." unique_id=1865178885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=235367004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.3355722, 0, 0, 0)
+
+[node name="SeeCast" type="RayCast3D" parent="Head/Camera3D" unique_id=1271913986]
+unique_name_in_owner = true
+transform = Transform3D(0.007121521, -0.14618863, -4.384532, 0.8968016, 0.1662124, 0.030315896, -0.030414836, 4.866659, -0.1327417, 0.06659436, -0.0005837679, 0)
+collision_mask = 3
+
+[node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=1143117086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99552983, -0.44287002, -2.2387598)
+script = ExtResource("2_ketdh")
+
+[node name="Inventory" type="Node" parent="." unique_id=1068612398]
+script = ExtResource("2_vt6n5")
+
+[node name="InventoryHUD" parent="." unique_id=1051674479 instance=ExtResource("3_muk8e")]
+
+[node name="CaptchaPopup" parent="." unique_id=866973205 instance=ExtResource("4_wrxq6")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=745273149]
+script = ExtResource("5_ketdh")
+
+[node name="HealthBar" parent="." unique_id=257216793 instance=ExtResource("6_0mfjg")]
+
+[node name="WhisperOverlay" parent="." unique_id=481376132 instance=ExtResource("7_eb65w")]
+script = ExtResource("1_oih67")
+
+[node name="GuideCanvas" parent="." unique_id=1872610407 instance=ExtResource("10_tk761")]
+
+[node name="WhisperTimer" type="Timer" parent="." unique_id=988635645]
+wait_time = 10.68
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="WhisperTimer" to="." method="_on_whisper_timer_timeout"]

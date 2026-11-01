@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://do7c7hmbq17ol"]
+
+[ext_resource type="Texture2D" uid="uid://b1e08jouuaa5k" path="res://assets/placeholders/ikat-pinggang.png" id="1_etoho"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_6tl1x"]
+[ext_resource type="PackedScene" uid="uid://cgm6gwune8lr5" path="res://src/items/fuel.tscn" id="3_r6f0m"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="4_1cn20"]
+
+[resource]
+script = ExtResource("4_1cn20")
+id = "fuel11"
+item_name = "Fuel"
+icon = ExtResource("1_etoho")
+mesh_scene = ExtResource("3_r6f0m")
+metadata/_custom_type_script = "uid://v0afeq406dv6"

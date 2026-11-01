@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7bfuxyf3tohb"
+path="res://.godot/imported/Tip - Dio Da.ogg-60be221d5f779704d6e292405a23eb69.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/voices/Tip - Dio Da.ogg"
+dest_files=["res://.godot/imported/Tip - Dio Da.ogg-60be221d5f779704d6e292405a23eb69.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d1i7kwgu7cl3t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4a0qc"]
+
+[node name="Kapak" type="Node3D" unique_id=1684309145 groups=["interactable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=989482026]
+mesh = SubResource("BoxMesh_4a0qc")

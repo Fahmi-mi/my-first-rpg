@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://blyeq5n2f3erk"]
+
+[ext_resource type="Script" uid="uid://dob7wiwpyvgwh" path="res://src/quests/motorcycle.gd" id="1_27oay"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mq8aq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mq8aq"]
+
+[node name="Motorcycle" type="RigidBody3D" unique_id=96038752 groups=["interactable"]]
+script = ExtResource("1_27oay")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=288214632]
+mesh = SubResource("CapsuleMesh_mq8aq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2119612961]
+shape = SubResource("CapsuleShape3D_mq8aq")
