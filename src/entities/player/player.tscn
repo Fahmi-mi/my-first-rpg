@@ -67,6 +67,7 @@ script = ExtResource("1_oih67")
 [node name="SavePopup" parent="." unique_id=1562920148 instance=ExtResource("11_n7e5a")]
 
 [node name="EndingPopup" parent="." unique_id=1165335906 instance=ExtResource("12_kc3pt")]
+
 [node name="WhisperTimer" type="Timer" parent="." unique_id=988635645]
 wait_time = 10.68
 one_shot = true

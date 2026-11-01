@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c1kui0hujs1cm"]
 
 [ext_resource type="PackedScene" uid="uid://c41mykv688cxe" path="res://src/entities/player/player.tscn" id="1_fgwm0"]
+[ext_resource type="PackedScene" uid="uid://b7x10ax8iwj7n" path="res://src/animation/cutscene.tscn" id="1_iigcc"]
 [ext_resource type="PackedScene" uid="uid://2d0872ism6ge" path="res://src/world/world_part/town.tscn" id="1_mn0la"]
 [ext_resource type="Script" uid="uid://dsok27w6akasa" path="res://src/entities/enemy/enemy_spawner.gd" id="2_avicb"]
 [ext_resource type="Shader" uid="uid://dwvm8rnku41lu" path="res://src/world/main_world.gdshader" id="2_xuo2k"]
@@ -260,6 +261,8 @@ buffer = PackedFloat32Array(0.016061958, -2.489597, -4.005603, -236.2351, -6.235
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="MainWorld" type="Node3D" unique_id=395283284]
+
+[node name="NewCutscene" parent="." unique_id=322867943 instance=ExtResource("1_iigcc")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=844469281]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
@@ -641,7 +644,7 @@ size = Vector3(2.3653488, 4.8430133, 2.6683848)
 material = SubResource("StandardMaterial3D_atdwr")
 
 [node name="airport" parent="." unique_id=1534675999 instance=ExtResource("4_fay8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9717445, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9847736, -3.8146973e-06, 0.46595764)
 
 [node name="AirportPlatform2" parent="airport" unique_id=2123413759 instance=ExtResource("13_6nqm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.245926, 5.660651, -176.9949)

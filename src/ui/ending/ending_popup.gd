@@ -33,3 +33,4 @@ func set_escape_ending() -> void:
 
 func restart_game() -> void:
 	SaveSystem._on_game_restart()
+	get_tree().reload_current_scene()

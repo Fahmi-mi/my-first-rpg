@@ -36,18 +36,10 @@ func _load():
 		print(content_to_save)
 
 func _on_game_restart() -> void:
-	if FileAccess.file_exists(path_to_save):
-		var file = FileAccess.open_encrypted_with_pass(path_to_save, FileAccess.WRITE, 'RPGPEMENANG#1')
-		file.store_var(
-			{
-			"position": {
-				"x": 0.0,
-				"y": 1.0,
-				"z": 0.0
-			},
-			"inventory": [],
-			"activate_radio": [],
-			"enemy_killed": []
-			}
-		)
-		file.close()
+	content_to_save.position.x = 0.0
+	content_to_save.position.y = 1.0
+	content_to_save.position.z = 0.0
+	content_to_save.inventory = [null, null, null, null]
+	content_to_save.activate_radio = []
+	content_to_save.enemy_killed = []
+	_save()
