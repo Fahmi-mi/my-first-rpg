@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cpwgam7yl1fdo" path="res://src/quests/airport_platform.tscn" id="13_6nqm6"]
 [ext_resource type="PackedScene" uid="uid://v53ycs7cy5cb" path="res://src/quests/radio.tscn" id="14_atdwr"]
 [ext_resource type="PackedScene" uid="uid://blyeq5n2f3erk" path="res://src/quests/motorcycle.tscn" id="14_oj0bl"]
-[ext_resource type="PackedScene" uid="uid://bof75gqhfpl85" path="res://src/items/Fuel.tscn" id="14_rpp75"]
+[ext_resource type="PackedScene" uid="uid://bof75gqhfpl85" path="res://src/items/fuel.tscn" id="14_rpp75"]
 [ext_resource type="Texture2D" uid="uid://baj2rvy4jmluo" path="res://assets/models/object/GasStation.png" id="15_jtmxq"]
 [ext_resource type="PackedScene" uid="uid://dr1smsgkex7vh" path="res://src/entities/enemy/enemy.tscn" id="18_avicb"]
 [ext_resource type="PackedScene" uid="uid://b52oxsp5cper4" path="res://src/entities/enemy/enemy2.tscn" id="18_iu0cw"]
@@ -278,6 +278,8 @@ counts = PackedInt32Array(15, 15, 15)
 floor_node = NodePath("../Floor")
 base_y = 1.0
 exclusion_nodes = [NodePath("../airport")]
+scale_max = 1.0
+scale_common = 1.0
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1512961396]
 transform = Transform3D(-0.75, 6.556708e-08, 0, 6.556708e-08, 0.75, 6.556708e-08, 5.7320566e-15, 6.556708e-08, -0.75, -136.71144, 0, -120.46209)

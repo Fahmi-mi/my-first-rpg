@@ -26,6 +26,7 @@ size = Vector3(0.08, 0.6471313, 0.08)
 
 [node name="Enemy" type="CharacterBody3D" unique_id=37569293]
 script = ExtResource("1_kli45")
+attack_range = 2.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1086765570]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0132751465, -0.036071777)
