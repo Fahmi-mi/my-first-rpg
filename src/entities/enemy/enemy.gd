@@ -61,8 +61,9 @@ func _perform_attack() -> void:
 		if player_health:
 			player_health.take_damage(attack_damage)
 			
-	await get_tree().create_timer(attack_cooldown).timeout
-	can_attack = true
+	if get_tree():
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
 	
 func _on_damage_taken(amount: int) -> void:
 	print("[Enemy] Bleeding: %d! Remaining HP: %d" % [amount, health_component.current_health])

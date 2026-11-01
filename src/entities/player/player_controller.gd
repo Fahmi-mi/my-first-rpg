@@ -55,7 +55,7 @@ func _on_damage_taken(amount: int) -> void:
 	print("[Player] Damage: %d, Remaining Health: %d/%d" % [amount, health_component.current_health, health_component.max_health])
 	
 func _on_died() -> void:
-	print("[Player] You died")
+	get_tree().reload_current_scene()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Save Pause
