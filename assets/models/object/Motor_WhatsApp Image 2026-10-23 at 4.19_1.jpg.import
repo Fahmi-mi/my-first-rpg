@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wsyg5k4fobqx"
-path.s3tc="res://.godot/imported/pohon2_Tree-1.png-793d560cbdd0ed85544b7f1ef0ed6ec5.s3tc.ctex"
+uid="uid://3duk3wbmwh80"
+path.s3tc="res://.godot/imported/Motor_WhatsApp Image 2026-10-23 at 4.19_1.jpg-faafd2ebbf489e8ed74d0efbc158f1c2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2d6c26a0a3ea4b7c5a14d56d0ccffba6"
+"md5": "f863be4d849e43ca9ad0b105fe17d396"
 }
 
 [deps]
 
-source_file="res://assets/models/buildings/pohon2_Tree-1.png"
-dest_files=["res://.godot/imported/pohon2_Tree-1.png-793d560cbdd0ed85544b7f1ef0ed6ec5.s3tc.ctex"]
+source_file="res://assets/models/object/Motor_WhatsApp Image 2026-10-23 at 4.19_1.jpg"
+dest_files=["res://.godot/imported/Motor_WhatsApp Image 2026-10-23 at 4.19_1.jpg-faafd2ebbf489e8ed74d0efbc158f1c2.s3tc.ctex"]
 
 [params]
 

@@ -1,16 +1,23 @@
 [gd_scene format=3 uid="uid://blyeq5n2f3erk"]
 
 [ext_resource type="Script" uid="uid://dob7wiwpyvgwh" path="res://src/quests/motorcycle.gd" id="1_27oay"]
+[ext_resource type="PackedScene" uid="uid://c6gf2yfb0a481" path="res://assets/models/object/Motor.glb" id="2_vbm46"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mq8aq"]
+[sub_resource type="BoxMesh" id="BoxMesh_6raoi"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mq8aq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbm46"]
+size = Vector3(1.2358398, 2.2867584, 5.5863647)
 
 [node name="Motorcycle" type="RigidBody3D" unique_id=96038752 groups=["interactable"]]
 script = ExtResource("1_27oay")
 
+[node name="Motor" parent="." unique_id=2017926493 instance=ExtResource("2_vbm46")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=288214632]
-mesh = SubResource("CapsuleMesh_mq8aq")
+visible = false
+mesh = SubResource("BoxMesh_6raoi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2119612961]
-shape = SubResource("CapsuleShape3D_mq8aq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02709961, 0.0053634644, 0.07583618)
+shape = SubResource("BoxShape3D_vbm46")

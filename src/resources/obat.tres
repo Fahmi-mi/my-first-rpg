@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dpimmp1lexpot" path="res://assets/placeholders/baju.png" id="1_6ea7x"]
 [ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="1_eq50w"]
 [ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="2_83lml"]
-[ext_resource type="PackedScene" uid="uid://d1i7kwgu7cl3t" path="res://src/items/kapak.tscn" id="3_a04j0"]
+[ext_resource type="PackedScene" uid="uid://d1i7kwgu7cl3t" path="res://src/items/lamp.tscn" id="3_a04j0"]
 
 [resource]
 script = ExtResource("2_83lml")
