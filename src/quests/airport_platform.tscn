@@ -6,16 +6,16 @@
 size = Vector3(1, 2.5, 2)
 
 [node name="AirportPlatform" type="Area3D" unique_id=2123413759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -77.0367, 0)
 script = ExtResource("1_b8gug")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1209537517]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_ajybq")
 debug_color = Color(0.67111063, 0.5091334, 1.92523e-07, 0.41960785)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1809295086]
-transform = Transform3D(1, 0, 0, 0, -0.022019967, -0.9997576, 0, 0.9997576, -0.022019967, 0, 0, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -0.022019967, -0.9997576, 0, 0.9997576, -0.022019967, 0, 38.731575, 0)
 light_color = Color(1, 1, 0, 1)
 light_energy = 7.164
 spot_range = 5.173

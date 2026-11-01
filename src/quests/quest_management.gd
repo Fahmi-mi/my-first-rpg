@@ -3,8 +3,11 @@ extends Node
 var enemy_killed: Array[String] = []
 var activate_radio: Array[String] = []
 func _ready() -> void:
+	load_game()
 	EventBus.on_enemy_killed.connect(trigger_sovereign_quest)
-	EventBus.on_radio_activated.connect(trigger_popular_quest)
+	EventBus.on_radio_activated.connect(trigger_popular_quest)	
+	EventBus.save_triggered.connect(_on_save_triggered)
+
 
 func trigger_sovereign_quest(enemy_id: String) -> void:
 	print(enemy_killed.size())
@@ -27,3 +30,12 @@ func is_enemy_dead(enemy_id: String) -> bool:
 
 func is_radio_active(radio_id: String) -> bool:
 	return activate_radio.has(radio_id)
+	
+func load_game():
+	enemy_killed.assign(SaveSystem.content_to_save["enemy_killed"])
+	activate_radio.assign(SaveSystem.content_to_save["activate_radio"])
+
+func _on_save_triggered() -> void:
+	SaveSystem.content_to_save.activate_radio = activate_radio
+	SaveSystem.content_to_save.enemy_killed = enemy_killed
+	SaveSystem._save()

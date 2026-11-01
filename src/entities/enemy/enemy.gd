@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var move_speed: float = 3.5
 @export var attack_damage: float = 15
-@export var attack_range: float = 1.8
+@export var attack_range: float = 4.0
 @export var attack_cooldown: float = 1.2
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -61,8 +61,9 @@ func _perform_attack() -> void:
 		if player_health:
 			player_health.take_damage(attack_damage)
 			
-	await get_tree().create_timer(attack_cooldown).timeout
-	can_attack = true
+	if get_tree():
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
 	
 func _on_damage_taken(amount: int) -> void:
 	print("[Enemy] Bleeding: %d! Remaining HP: %d" % [amount, health_component.current_health])

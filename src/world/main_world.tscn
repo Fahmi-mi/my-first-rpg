@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c1kui0hujs1cm"]
 
 [ext_resource type="PackedScene" uid="uid://c41mykv688cxe" path="res://src/entities/player/player.tscn" id="1_fgwm0"]
+[ext_resource type="PackedScene" uid="uid://b7x10ax8iwj7n" path="res://src/animation/cutscene.tscn" id="1_iigcc"]
 [ext_resource type="PackedScene" uid="uid://2d0872ism6ge" path="res://src/world/world_part/town.tscn" id="1_mn0la"]
 [ext_resource type="Script" uid="uid://dsok27w6akasa" path="res://src/entities/enemy/enemy_spawner.gd" id="2_avicb"]
 [ext_resource type="Shader" uid="uid://dwvm8rnku41lu" path="res://src/world/main_world.gdshader" id="2_xuo2k"]
@@ -264,6 +265,8 @@ albedo_color = Color(0, 0, 0, 1)
 
 [node name="MainWorld" type="Node3D" unique_id=395283284]
 
+[node name="NewCutscene" parent="." unique_id=322867943 instance=ExtResource("1_iigcc")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=844469281]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 light_energy = 0.584
@@ -281,6 +284,8 @@ counts = PackedInt32Array(15, 15, 15)
 floor_node = NodePath("../Floor")
 base_y = 1.0
 exclusion_nodes = [NodePath("../airport")]
+scale_max = 1.0
+scale_common = 1.0
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1512961396]
 transform = Transform3D(-0.75, 6.556708e-08, 0, 6.556708e-08, 0.75, 6.556708e-08, 5.7320566e-15, 6.556708e-08, -0.75, -136.67346, 0, -120.47258)
@@ -442,7 +447,7 @@ transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, -66.6
 transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -10.214111, 1.7896247, -6.44635)
 
 [node name="airport" parent="." unique_id=1534675999 instance=ExtResource("4_fay8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9717445, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9847736, -3.8146973e-06, 0.46595764)
 
 [node name="AirportPlatform2" parent="airport" unique_id=2123413759 instance=ExtResource("13_6nqm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.245926, 5.660651, -176.9949)

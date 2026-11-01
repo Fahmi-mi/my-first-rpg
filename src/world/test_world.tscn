@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://do7c7hmbq17ol" path="res://src/resources/fuel.tres" id="6_hcmtl"]
 [ext_resource type="PackedScene" uid="uid://b7x10ax8iwj7n" path="res://src/animation/cutscene.tscn" id="7_e7n38"]
 [ext_resource type="PackedScene" uid="uid://v53ycs7cy5cb" path="res://src/quests/radio.tscn" id="8_eyewv"]
-[ext_resource type="PackedScene" uid="uid://cpwgam7yl1fdo" path="res://src/quests/airport_platform.tscn" id="10_vjq7d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4vx48"]
 
