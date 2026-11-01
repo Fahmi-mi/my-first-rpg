@@ -8,6 +8,7 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player: CharacterBody3D = null
 var can_attack: bool = true
+var unique_id: String
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var visuals: Node3D = $Visuals
@@ -15,6 +16,7 @@ var can_attack: bool = true
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as CharacterBody3D
+	unique_id = str(get_path())
 	
 	health_component.died.connect(_on_died)
 	health_component.damage_taken.connect(_on_damage_taken)
@@ -68,4 +70,5 @@ func _on_damage_taken(amount: int) -> void:
 func _on_died() -> void:
 	print("[Enemy] Enemy died")
 	EventBus.enemy_defeated.emit(0)
+	EventBus.on_enemy_killed.emit(unique_id)
 	queue_free()

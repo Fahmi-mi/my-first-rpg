@@ -6,7 +6,14 @@ extends CharacterBody3D
 
 @export var min_delay: float = 0.1
 @export var max_delay: float = 0.35
+
+@export var can_unarmed_attack: bool = true
+@export var unarmed_damage: int = 5
+@export var attack_range: float = 2.0
+@export var attack_cooldown: float = 0.35
+
 @onready var inventory: PlayerInventory = $Inventory
+@onready var WhisperTimer: Timer = $WhisperTimer
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -15,6 +22,8 @@ var target_input_dir: Vector2 = Vector2.ZERO
 var delayed_input_dir: Vector2 = Vector2.ZERO
 
 var is_locked: bool = false
+var attack_timer: float = 0.0
+var pending_action: Callable = Callable()
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
@@ -29,7 +38,13 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
-	EventBus.captcha_resolved.connect(func(_success): is_locked = false)
+	EventBus.captcha_resolved.connect(func(_success: bool):
+		is_locked = false
+		
+		if pending_action.is_valid():
+			pending_action.call()
+			pending_action = Callable()
+	)
 	EventBus.item_drop.connect(drop_from_player)
 	EventBus.save_triggered.connect(_on_save_triggered)
 	
@@ -70,8 +85,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-
+			
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			use_active_item()
+			
 	var object = see_cast.get_collider()
 	# Visual Trigger
 	if see_cast.is_colliding():
@@ -89,26 +107,83 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if object == null:
 			return 
-		elif see_cast.is_colliding() and object.is_in_group("interactable"):				
-			if object.has_method("interact"):
-				if object.is_in_group("quest_item"):
-					object.interact()
+		elif see_cast.is_colliding() and object.is_in_group("interactable"):
+			EventBus.interaction_attempted.emit(object.name)
+			
+			var action = func():
+				if object.has_method("interact"):
+					if object.is_in_group("quest_item"):
+						object.interact()
+					else:
+						inventory.add_item(object.item_data)
+						inventory._select_slot(inventory.active_slot_index)
+						object.free()
+				elif object.has_method("trigger_quest"):
+					object.trigger_quest(
+						inventory.slots[inventory.active_slot_index]
+					)
 				else:
-					inventory.add_item(object.item_data)
-					inventory._select_slot(inventory.active_slot_index)
-					object.free()
-			elif object.has_method("trigger_quest"):
-				object.trigger_quest(
-					inventory.slots[inventory.active_slot_index]
-				)
+					print("Ga punya")
+					
+			if not is_locked:
+				action.call()
 			else:
-				print("Ga punya")
-
+				pending_action = action
+				
 	if event.is_action_pressed("drop"):
 		inventory.drop_item()
 			
-
+func use_active_item() -> void:
+	var item: ItemData = inventory.get_active_item()
+	
+	if item == null:
+		if can_unarmed_attack:
+			_perform_attack(unarmed_damage)
+		return
+		
+	match item.item_type:
+		ItemData.ItemType.HEALING:
+			_use_healing_item(item)
+		ItemData.ItemType.WEAPON:
+			_perform_attack(item.damage)
+			
+func _use_healing_item(item: ItemData) -> void:
+	if health_component.current_health >= health_component.max_health:
+		return
+		
+	health_component.heal(item.heal_amount)
+	inventory.consume_active_item()
+	
+func _perform_attack(damage_amount: int) -> void:
+	if attack_timer > 0.0:
+		return
+		
+	attack_timer = attack_cooldown
+	
+	if hand.has_method("play_attack_animation"):
+		hand.play_attack_animation()
+		VoiceManager.play_voice("Tip - punch", true)
+	var space_state = get_world_3d().direct_space_state
+	var origin = camera.global_position
+	var target = origin - camera.global_transform.basis.z * attack_range
+	var query = PhysicsRayQueryParameters3D.create(origin, target)
+	query.exclude = [self.get_rid()]
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var collider = result.collider
+		if collider:
+			var target_health: HealthComponent = collider.get_node_or_null("HealthComponent")
+			if target_health:
+				target_health.take_damage(damage_amount)
+	
 func _physics_process(delta: float) -> void:
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+		
+	if attack_timer > 0.0:
+		attack_timer -= delta
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
@@ -119,11 +194,11 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		
 		velocity.y = jump_velocity
 		#test audio function
-		#VoiceManager.play_voice("test_audio")
+		VoiceManager.play_voice("Tip - Jumping", true)
 		#test color filter audio
-		VoiceManager.play_whisper("test_audio", VoiceManager.Personality.BRAVE, false)
 		
 	var raw_input: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
@@ -143,6 +218,7 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		velocity.x = direction.x * move_speed
 		velocity.z = direction.z * move_speed
+		VoiceManager.play_voice("Tip - walking", true)
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 		velocity.z = move_toward(velocity.z, 0, move_speed)
@@ -165,3 +241,20 @@ func _on_save_triggered() -> void:
 		"z": position[2]
 	}
 	SaveSystem._save()
+
+var WHISPERS = [
+	{'audio' : 'Savior-1', 'personality' : VoiceManager.Personality.BRAVE},
+	{'audio' : 'Savior-2', 'personality' : VoiceManager.Personality.BRAVE},
+	{'audio' : 'Escape 1', 'personality' : VoiceManager.Personality.ESCAPIST},
+	{'audio' : 'Escape 2', 'personality' : VoiceManager.Personality.ESCAPIST},
+	{'audio' : 'Popular 1', 'personality' : VoiceManager.Personality.POPULAR},
+	{'audio' : 'Popular 2', 'personality' : VoiceManager.Personality.POPULAR},
+	{'audio' : 'True 1', 'personality' : VoiceManager.Personality.HOMETOWN},
+	{'audio' : 'True 2', 'personality' : VoiceManager.Personality.HOMETOWN},
+]
+
+func _on_whisper_timer_timeout() -> void:
+	WhisperTimer.wait_time = randf_range(10.0, 20.0)
+	WhisperTimer.start()
+	var whisper = WHISPERS.pick_random()
+	VoiceManager.play_whisper(whisper.audio, whisper.personality, false)

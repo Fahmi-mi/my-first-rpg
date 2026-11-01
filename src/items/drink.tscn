@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://doydejh4010ga"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j47dn"]
+
+[node name="Gun1" type="Node3D" unique_id=606744574]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1651181900 groups=["interactable"]]
+mesh = SubResource("BoxMesh_j47dn")

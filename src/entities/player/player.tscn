@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5kyst5yf7t4l" path="res://src/entities/player/player_controller.gd" id="1_4m8ck"]
 [ext_resource type="Script" uid="uid://dbh1b7d7ads3d" path="res://src/ui/hud/whisper_overlay.gd" id="1_oih67"]
 [ext_resource type="Script" uid="uid://bgrabyr410xk5" path="res://src/entities/player/hand.gd" id="2_ketdh"]
+[ext_resource type="Texture2D" uid="uid://xq4hw5y6p8x1" path="res://assets/models/entities/Player.png" id="2_n7e5a"]
 [ext_resource type="Script" uid="uid://cr8d614m2l6ds" path="res://src/entities/player/player_inventory.gd" id="2_vt6n5"]
 [ext_resource type="PackedScene" uid="uid://bdl2glnar40nr" path="res://src/ui/hud/inventory_hud.tscn" id="3_muk8e"]
 [ext_resource type="PackedScene" uid="uid://c5oage2p1tcm5" path="res://src/ui/captcha/captcha_popup.tscn" id="4_wrxq6"]
@@ -15,11 +16,21 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8cqn"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jslb0"]
+albedo_texture = ExtResource("2_n7e5a")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j47dn"]
+material = SubResource("StandardMaterial3D_jslb0")
+
 [node name="Player" type="CharacterBody3D" unique_id=964984718]
 script = ExtResource("1_4m8ck")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1466092142]
 shape = SubResource("CapsuleShape3D_w8cqn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=550757020]
+transform = Transform3D(1.1349584, 0, 0, 0, -4.371139e-08, -1.3919382, 0, 1, -6.0843554e-08, 0, 0.41899967, 0)
+mesh = SubResource("PlaneMesh_j47dn")
 
 [node name="Head" type="Node3D" parent="." unique_id=1865178885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -56,3 +67,9 @@ script = ExtResource("1_oih67")
 [node name="SavePopup" parent="." unique_id=1562920148 instance=ExtResource("11_n7e5a")]
 
 [node name="EndingPopup" parent="." unique_id=1165335906 instance=ExtResource("12_kc3pt")]
+[node name="WhisperTimer" type="Timer" parent="." unique_id=988635645]
+wait_time = 10.68
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="WhisperTimer" to="." method="_on_whisper_timer_timeout"]

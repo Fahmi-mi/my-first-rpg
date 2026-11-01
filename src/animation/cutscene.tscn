@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://b7x10ax8iwj7n"]
 
 [ext_resource type="Script" uid="uid://dm3s6krj8xsrn" path="res://src/animation/new_cutscene.gd" id="1_p2blu"]
-[ext_resource type="VideoStream" uid="uid://fpo3rq27t6gv" path="res://assets/placeholders/sample_240p.ogv" id="2_ccce2"]
-[ext_resource type="VideoStream" uid="uid://dl65thira2fp7" path="res://assets/placeholders/sample_1080p.ogv" id="3_p5c2m"]
+[ext_resource type="VideoStream" uid="uid://j4kjwmu4t4bp" path="res://assets/cutscenes/SaviorEnding.ogv" id="2_cl1q4"]
+[ext_resource type="VideoStream" uid="uid://dchbltrnatss" path="res://assets/cutscenes/PopularEnding.ogv" id="3_33fi4"]
+[ext_resource type="VideoStream" uid="uid://cwlhym7mkcg8l" path="res://assets/cutscenes/EscapeEnding.ogv" id="4_gls5n"]
+[ext_resource type="VideoStream" uid="uid://diqptsn7ue85h" path="res://assets/cutscenes/TrueEnding.ogv" id="4_p5c2m"]
 
 [node name="NewCutscene" type="CanvasLayer" unique_id=322867943]
 layer = 2
 script = ExtResource("1_p2blu")
 ending_videos = Dictionary[int, VideoStream]({
-0: ExtResource("2_ccce2"),
-1: ExtResource("2_ccce2"),
-2: ExtResource("3_p5c2m"),
-3: ExtResource("3_p5c2m")
+0: ExtResource("2_cl1q4"),
+1: ExtResource("3_33fi4"),
+2: ExtResource("4_gls5n"),
+3: ExtResource("4_p5c2m")
 })
 
 [node name="VideoPlayer" type="VideoStreamPlayer" parent="." unique_id=450811311]
