@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://do7c7hmbq17ol" path="res://src/resources/fuel.tres" id="6_hcmtl"]
 [ext_resource type="PackedScene" uid="uid://b7x10ax8iwj7n" path="res://src/animation/cutscene.tscn" id="7_e7n38"]
 [ext_resource type="PackedScene" uid="uid://v53ycs7cy5cb" path="res://src/quests/radio.tscn" id="8_eyewv"]
-[ext_resource type="PackedScene" uid="uid://cpwgam7yl1fdo" path="res://src/quests/airport_platform.tscn" id="10_vjq7d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4vx48"]
 
@@ -70,6 +69,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7129879, 1, 10.967821)
 
 [node name="Radio4" parent="." unique_id=918890978 instance=ExtResource("8_eyewv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3578758, 1, 7.8295116)
-
-[node name="AirportPlatform" parent="." unique_id=2123413759 instance=ExtResource("10_vjq7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7069435, 0.40017557, -0.6723039)

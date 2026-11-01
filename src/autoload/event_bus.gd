@@ -13,7 +13,7 @@ signal captcha_triggered
 signal captcha_resolved(success: bool)
 
 # game state and ending
-signal game_ended(ending_name: String)
+signal game_ended(ending: EndingType)
 signal cutscene_ending(cutscene: EndingType)
 
 # tegar's whisper of thoughts
@@ -35,3 +35,4 @@ signal on_radio_activated(radio_id: String)
 
 # saving system
 signal save_triggered
+signal interact_save_ui

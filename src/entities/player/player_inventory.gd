@@ -5,7 +5,10 @@ var slots: Array = [null, null, null, null]
 var active_slot_index: int = 0
 
 func _ready() -> void:
+	load_game()
 	call_deferred("_update_ui")
+	EventBus.save_triggered.connect(_on_save_triggered)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("slot_w"):
@@ -44,11 +47,26 @@ func drop_item():
 		_select_slot(active_slot_index)
 		EventBus.inventory_updated.emit(slots)
 		
-	
-	
+func load_game():
+	var loaded_inventory = SaveSystem.content_to_save["inventory"]
+	var index = 0
+	for i in loaded_inventory:
+		if i != null and i is String:
+			var loaded_item = load(i)
+			slots[index] = loaded_item
+		else:
+			null
+		index += 1
+
 func _update_ui() -> void:
 	EventBus.inventory_updated.emit(slots)
 	
 func _on_save_triggered() -> void:
-	SaveSystem.content_to_save.inventory = slots
+	var saved_inventory = []
+	for i in slots:
+		if i != null:
+			saved_inventory.append(i.resource_path)
+		else:
+			saved_inventory.append(null)
+	SaveSystem.content_to_save.inventory = saved_inventory
 	SaveSystem._save()
