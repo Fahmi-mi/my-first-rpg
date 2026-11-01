@@ -34,6 +34,7 @@ var pending_action: Callable = Callable()
 
 func _ready() -> void:
 	add_to_group("player")
+	load_game()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	EventBus.captcha_triggered.connect(func(): is_locked = true)
@@ -45,6 +46,7 @@ func _ready() -> void:
 			pending_action = Callable()
 	)
 	EventBus.item_drop.connect(drop_from_player)
+	EventBus.save_triggered.connect(_on_save_triggered)
 	
 	health_component.damage_taken.connect(_on_damage_taken)
 	health_component.died.connect(_on_died)
@@ -56,6 +58,14 @@ func _on_died() -> void:
 	print("[Player] You died")
 	
 func _unhandled_input(event: InputEvent) -> void:
+	# Save Pause
+	if event.is_action_pressed("pause"):
+		EventBus.interact_save_ui.emit()
+		if is_locked:
+			is_locked = false
+		else:
+			is_locked = true
+
 	if is_locked:
 		return
 		
@@ -215,6 +225,10 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+func load_game():
+	var pos_data = SaveSystem.content_to_save["position"]
+	position = Vector3(pos_data["x"], pos_data["y"], pos_data["z"])
+
 func drop_from_player(item):
 	var forward = -transform.basis.z.normalized()
 	var drop_pos = global_position + forward * 2.0
@@ -226,6 +240,7 @@ func _on_save_triggered() -> void:
 		"y": position[1],
 		"z": position[2]
 	}
+	SaveSystem._save()
 
 var WHISPERS = [
 	{'audio' : 'Savior-1', 'personality' : VoiceManager.Personality.BRAVE},

@@ -4,11 +4,10 @@ var is_active: bool
 var unique_id: String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	is_active = false
 	unique_id = str(get_path())
+	is_active = unique_id in SaveSystem.content_to_save.activate_radio
 
 func interact() -> void:
-	print(is_active)
 	if is_active:
 		return
 	else:

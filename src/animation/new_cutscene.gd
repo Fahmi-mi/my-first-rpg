@@ -20,7 +20,6 @@ func play_cutscene(ending_type: EventBus.EndingType) -> void:
 		push_error("Video untuk ending '" + ending_name + "' belum dimasukkan di Inspector!")
 	
 
-
 func _on_animation_player_finished() -> void:
 	video_player.visible = false
-	EventBus.game_ended.emit("Yeayyyy")
+	EventBus.game_ended.emit(current_ending)
