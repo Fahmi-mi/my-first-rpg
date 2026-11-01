@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://iptalf8wlxhh"]
+
+[ext_resource type="Texture2D" uid="uid://dgj7x663xisnx" path="res://assets/models/object/lamp_Lamp post.png" id="1_np6cl"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_5bbqg"]
+[ext_resource type="PackedScene" uid="uid://d1i7kwgu7cl3t" path="res://src/items/lamp.tscn" id="3_qq5i6"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="4_g5qep"]
+
+[resource]
+script = ExtResource("4_g5qep")
+id = "5"
+item_name = "lamp"
+icon = ExtResource("1_np6cl")
+mesh_scene = ExtResource("3_qq5i6")
+metadata/_custom_type_script = "uid://v0afeq406dv6"
