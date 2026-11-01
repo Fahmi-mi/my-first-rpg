@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var move_speed: float = 3.5
 @export var attack_damage: float = 15
-@export var attack_range: float = 1.8
+@export var attack_range: float = 4.0
 @export var attack_cooldown: float = 1.2
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
