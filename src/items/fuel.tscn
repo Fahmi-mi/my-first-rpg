@@ -1,8 +1,5 @@
-[gd_scene format=3 uid="uid://cgm6gwune8lr5"]
+[gd_scene format=3 uid="uid://bof75gqhfpl85"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_mq8aq"]
+[ext_resource type="PackedScene" uid="uid://dnpvlkvx2ve4x" path="res://assets/models/object/Bensin.glb" id="1_2kp5p"]
 
-[node name="Fuel" type="Node3D" unique_id=1994156594]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=582036002]
-mesh = SubResource("PrismMesh_mq8aq")
+[node name="Fuel" unique_id=487627227 groups=["interactable"] instance=ExtResource("1_2kp5p")]

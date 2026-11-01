@@ -10,6 +10,7 @@
 script = ExtResource("1_d202u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2076977381]
+visible = false
 mesh = SubResource("CylinderMesh_fvach")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=736825199]

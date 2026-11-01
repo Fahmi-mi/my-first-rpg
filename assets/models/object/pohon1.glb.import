@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d3kjromnojavg"
-path="res://.godot/imported/pohon1.glb-6b599b47e7246fed3742036aa312e02d.scn"
+path="res://.godot/imported/pohon1.glb-7655d73758fcbbf651e2f0d20e566291.scn"
 
 [deps]
 
-source_file="res://assets/models/buildings/pohon1.glb"
-dest_files=["res://.godot/imported/pohon1.glb-6b599b47e7246fed3742036aa312e02d.scn"]
+source_file="res://assets/models/object/pohon1.glb"
+dest_files=["res://.godot/imported/pohon1.glb-7655d73758fcbbf651e2f0d20e566291.scn"]
 
 [params]
 
