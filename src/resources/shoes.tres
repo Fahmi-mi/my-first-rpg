@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ep6nn2r00gr"]
+
+[ext_resource type="Texture2D" uid="uid://dq7oov8oin173" path="res://assets/models/object/shoe_Shoe.png" id="1_mqw1s"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_h65df"]
+[ext_resource type="PackedScene" uid="uid://b5a0rytj7t68k" path="res://src/items/shoes.tscn" id="3_n6d2r"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="4_yf8op"]
+
+[resource]
+script = ExtResource("4_yf8op")
+icon = ExtResource("1_mqw1s")
+mesh_scene = ExtResource("3_n6d2r")
+metadata/_custom_type_script = "uid://v0afeq406dv6"

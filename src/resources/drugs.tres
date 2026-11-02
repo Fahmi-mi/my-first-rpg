@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://buw21mkipfkij"]
+
+[ext_resource type="Texture2D" uid="uid://dcufr1ux5j0mk" path="res://assets/models/object/drugs_drugs_obat.jpg" id="1_1qekc"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_2n0jr"]
+[ext_resource type="PackedScene" uid="uid://cdcty4qw2srci" path="res://src/items/drugs.tscn" id="3_2n0jr"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="4_2ydd6"]
+
+[resource]
+script = ExtResource("4_2ydd6")
+id = "2"
+item_name = "drugs"
+icon = ExtResource("1_1qekc")
+mesh_scene = ExtResource("3_2n0jr")
+metadata/_custom_type_script = "uid://v0afeq406dv6"

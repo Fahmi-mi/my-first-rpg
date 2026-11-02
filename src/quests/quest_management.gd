@@ -12,7 +12,7 @@ func _ready() -> void:
 func trigger_sovereign_quest(enemy_id: String) -> void:
 	print(enemy_killed.size())
 	enemy_killed.append(enemy_id)
-	if enemy_killed.size() >= 50:
+	if enemy_killed.size() >= 30:
 		print(enemy_killed.size())
 		EventBus.cutscene_ending.emit(EventBus.EndingType.SOVEREIGN_ENDING)
 	else:
