@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var title_label: Label = %TitleLabel
 @onready var restart_button: Button = %Button
+@onready var top_bar: Panel = $MarginContainer/MainPanel/TopBar
 
 func _ready() -> void:
 	hide()
@@ -20,6 +21,7 @@ func the_ending_choosen(ending: EventBus.EndingType) -> void:
 	show()
 	
 func set_true_ending() -> void:
+	top_bar.remove_theme_color_override("StyleBoxFlat")
 	title_label.text = "Tegar now can live peacefully"
 
 func set_sovereign_ending() -> void:

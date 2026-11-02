@@ -11,7 +11,9 @@ func interact() -> void:
 	if is_active:
 		return
 	else:
+		print("nyala euy")
 		set_radio_active_state()
+		print(is_active)
 		EventBus.on_radio_activated.emit(unique_id)
 
 func set_radio_active_state() -> void:

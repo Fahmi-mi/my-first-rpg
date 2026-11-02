@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c1kui0hujs1cm"]
 
+[ext_resource type="Script" uid="uid://b7rvon5j3weej" path="res://src/quests/quest_management.gd" id="1_4mmpr"]
 [ext_resource type="PackedScene" uid="uid://c41mykv688cxe" path="res://src/entities/player/player.tscn" id="1_fgwm0"]
 [ext_resource type="PackedScene" uid="uid://b7x10ax8iwj7n" path="res://src/animation/cutscene.tscn" id="1_iigcc"]
 [ext_resource type="PackedScene" uid="uid://2d0872ism6ge" path="res://src/world/world_part/town.tscn" id="1_mn0la"]
@@ -21,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1smsgkex7vh" path="res://src/entities/enemy/enemy.tscn" id="18_avicb"]
 [ext_resource type="PackedScene" uid="uid://b52oxsp5cper4" path="res://src/entities/enemy/enemy2.tscn" id="18_iu0cw"]
 [ext_resource type="PackedScene" uid="uid://c2gchlpli71au" path="res://src/entities/enemy/enemy3.tscn" id="19_jcbmt"]
-[ext_resource type="Resource" uid="uid://do7c7hmbq17ol" path="res://src/resources/Fuel.tres" id="24_r0wsj"]
+[ext_resource type="Resource" uid="uid://do7c7hmbq17ol" path="res://src/resources/fuel.tres" id="24_r0wsj"]
 [ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="25_6ild0"]
 [ext_resource type="Resource" uid="uid://buw21mkipfkij" path="res://src/resources/drugs.tres" id="25_63a0t"]
 [ext_resource type="Resource" uid="uid://ep6nn2r00gr" path="res://src/resources/shoes.tres" id="26_4mmpr"]
@@ -242,6 +243,9 @@ albedo_color = Color(0, 0, 0, 1)
 
 [node name="MainWorld" type="Node3D" unique_id=395283284]
 
+[node name="MainQuest" type="Node" parent="." unique_id=1256572414]
+script = ExtResource("1_4mmpr")
+
 [node name="NewCutscene" parent="." unique_id=322867943 instance=ExtResource("1_iigcc")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=844469281]
@@ -403,16 +407,8 @@ shape = SubResource("ConcavePolygonShape3D_oi3cr")
 transform = Transform3D(-0.07756972, -0.22862375, -0.9704195, -0.99694663, 0.009033798, 0.07756184, -0.008965906, 0.9734729, -0.22862643, -272.5064, 6.146143, -87.86294)
 shape = SubResource("ConcavePolygonShape3D_oi3cr")
 
-[node name="@CollisionShape3D@43336" type="CollisionShape3D" parent="forest/TreeScatter/TreeCollision" unique_id=2112867303]
-transform = Transform3D(-0.06225731, 0.2450262, 0.96751547, -0.9965178, 0.03861199, -0.07390213, -0.05546565, -0.9687473, 0.24176906, -213.00505, 4.849191, -220.77457)
-shape = SubResource("ConcavePolygonShape3D_oi3cr")
-
 [node name="@CollisionShape3D@43337" type="CollisionShape3D" parent="forest/TreeScatter/TreeCollision" unique_id=2057147613]
 transform = Transform3D(0.008996858, 0.98895955, -0.14791243, -0.9986899, 0.016338145, 0.048492853, 0.05037408, 0.14728236, 0.98781097, -265.8553, 5.9072723, -210.21344)
-shape = SubResource("ConcavePolygonShape3D_oi3cr")
-
-[node name="@CollisionShape3D@43338" type="CollisionShape3D" parent="forest/TreeScatter/TreeCollision" unique_id=1000371595]
-transform = Transform3D(0.057921853, -0.49154037, 0.8689264, -0.9960668, -0.08691321, 0.017231252, 0.06705132, -0.8665069, -0.4946412, -210.95607, 5.625647, -224.54468)
 shape = SubResource("ConcavePolygonShape3D_oi3cr")
 
 [node name="@CollisionShape3D@43339" type="CollisionShape3D" parent="forest/TreeScatter/TreeCollision" unique_id=467341901]
@@ -1794,7 +1790,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.861305, 1.2885795, -150.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.213135, 0.6946807, 127.826584)
 item_data = ExtResource("27_63a0t")
 
-[node name="gun2" parent="guns" unique_id=2035168717 instance=ExtResource("25_6ild0")]
+[node name="gun2" parent="guns" unique_id=1706336090 instance=ExtResource("25_6ild0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.36409, 0.6946807, 96.38289)
 item_data = ExtResource("27_63a0t")
 

@@ -16,7 +16,6 @@ const PERSONALITY_COLORS = {
 	Personality.POPULAR: Color(1.0, 0.85, 0.2, 0.7),
 	Personality.ESCAPIST: Color(0.2, 0.6, 1.0, 0.7),
 	Personality.HOMETOWN: Color(0.2, 0.8, 0.3, 0.7)
-	
 }
 
 func _ready() -> void:

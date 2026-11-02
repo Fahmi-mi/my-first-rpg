@@ -47,9 +47,13 @@ func _ready() -> void:
 	)
 	EventBus.item_drop.connect(drop_from_player)
 	EventBus.save_triggered.connect(_on_save_triggered)
+	EventBus.cutscene_ending.connect(func(_type): set_player_active(false))
 	
 	health_component.damage_taken.connect(_on_damage_taken)
 	health_component.died.connect(_on_died)
+	if SaveSystem.content_to_save.game_ended != null:
+		set_player_active(false)
+		EventBus.game_ended.emit(SaveSystem.content_to_save.game_ended)
 	
 func _on_damage_taken(amount: int) -> void:
 	print("[Player] Damage: %d, Remaining Health: %d/%d" % [amount, health_component.current_health, health_component.max_health])
@@ -93,6 +97,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	var object = see_cast.get_collider()
 	# Visual Trigger
 	if see_cast.is_colliding():
+		if object == null:
+			return
 		if object.has_method("check_valid") and object.is_in_group("interactable"):
 			var display = object.check_valid(
 				inventory.slots[inventory.active_slot_index]
@@ -109,7 +115,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			return 
 		elif see_cast.is_colliding() and object.is_in_group("interactable"):
 			EventBus.interaction_attempted.emit(object.name)
-			
 			var action = func():
 				if object.has_method("interact"):
 					if object.is_in_group("quest_item"):
@@ -129,7 +134,6 @@ func _unhandled_input(event: InputEvent) -> void:
 				action.call()
 			else:
 				pending_action = action
-				
 	if event.is_action_pressed("drop"):
 		inventory.drop_item()
 			
@@ -241,6 +245,14 @@ func _on_save_triggered() -> void:
 		"z": position[2]
 	}
 	SaveSystem._save()
+	
+func set_player_active(active:bool) -> void:
+	WhisperTimer.stop()
+	set_physics_process(active)
+	set_process(active)
+	if not active:
+		velocity = Vector3.ZERO
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 var WHISPERS = [
 	{'audio' : 'Savior-1', 'personality' : VoiceManager.Personality.BRAVE},

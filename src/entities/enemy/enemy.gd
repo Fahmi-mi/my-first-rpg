@@ -21,6 +21,10 @@ func _ready() -> void:
 	health_component.died.connect(_on_died)
 	health_component.damage_taken.connect(_on_damage_taken)
 	
+	EventBus.cutscene_ending.connect(func(_type): set_enemy_active(false))
+	if SaveSystem.content_to_save.game_ended != null:
+		set_enemy_active(false)
+	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -73,3 +77,8 @@ func _on_died() -> void:
 	EventBus.enemy_defeated.emit(0)
 	EventBus.on_enemy_killed.emit(unique_id)
 	queue_free()
+
+func set_enemy_active(active: bool):
+	set_physics_process(active)
+	print("masuk")
+	can_attack = false

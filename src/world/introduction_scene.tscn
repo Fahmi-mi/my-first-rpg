@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bki1n86e05scc"]
+
+[ext_resource type="Script" uid="uid://bllat5nx7wgny" path="res://src/world/introduction_scene.gd" id="1_s5m8w"]
+[ext_resource type="VideoStream" uid="uid://cel1bhh264pia" path="res://assets/cutscenes/Intro.ogv" id="2_dih23"]
+
+[node name="IntroductionScene" type="Control" unique_id=182756234]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5m8w")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1655632943]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_dih23")
+expand = true

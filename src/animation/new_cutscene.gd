@@ -8,6 +8,8 @@ func _ready() -> void:
 	video_player.visible = false
 	EventBus.cutscene_ending.connect(play_cutscene)
 	video_player.finished.connect(_on_animation_player_finished)
+	print(SaveSystem.content_to_save.game_ended)
+	
 
 func play_cutscene(ending_type: EventBus.EndingType) -> void:
 	var ending_name = EventBus.EndingType.keys()[ending_type]
@@ -22,4 +24,7 @@ func play_cutscene(ending_type: EventBus.EndingType) -> void:
 
 func _on_animation_player_finished() -> void:
 	video_player.visible = false
+	print(current_ending)
+	SaveSystem.content_to_save.game_ended = current_ending
+	SaveSystem._save()
 	EventBus.game_ended.emit(current_ending)

@@ -10,7 +10,9 @@ var content_to_save: Dictionary = {
 	},
 	"inventory": [null, null, null, null],
 	"activate_radio": [],
-	"enemy_killed": []
+	"enemy_killed": [],
+	"introduction_played": false,
+	"game_ended": EventBus.EndingType
 }
 
 func _ready() -> void:
@@ -33,6 +35,8 @@ func _load():
 		content_to_save.inventory = save_data.inventory
 		content_to_save.activate_radio = save_data.activate_radio
 		content_to_save.enemy_killed = save_data.enemy_killed
+		content_to_save.introduction_played = save_data.introduction_played
+		content_to_save.game_ended = save_data.game_ended
 		print(content_to_save)
 
 func _on_game_restart() -> void:
@@ -42,4 +46,5 @@ func _on_game_restart() -> void:
 	content_to_save.inventory = [null, null, null, null]
 	content_to_save.activate_radio = []
 	content_to_save.enemy_killed = []
+	content_to_save.game_ended = null
 	_save()
