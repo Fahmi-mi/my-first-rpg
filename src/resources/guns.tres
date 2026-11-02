@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d3t1tt80dvnu3"]
+
+[ext_resource type="Texture2D" uid="uid://bjda0678c38it" path="res://assets/models/object/gun_pngwing.png" id="1_c34p4"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_ytiw4"]
+[ext_resource type="PackedScene" uid="uid://bxood3nl8j7jq" path="res://src/items/gun.tscn" id="3_kq3i6"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="4_lubfb"]
+
+[resource]
+script = ExtResource("4_lubfb")
+id = "7"
+item_name = "Gun"
+icon = ExtResource("1_c34p4")
+mesh_scene = ExtResource("3_kq3i6")
+metadata/_custom_type_script = "uid://v0afeq406dv6"

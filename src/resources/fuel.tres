@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://do7c7hmbq17ol"]
+
+[ext_resource type="Texture2D" uid="uid://dg8ri0x5vc1rl" path="res://assets/models/object/Screenshot 2026-11-01 130211.png" id="1_0g4j2"]
+[ext_resource type="PackedScene" uid="uid://5ppeyxba8jne" path="res://src/items/interactable_item.tscn" id="2_qd21c"]
+[ext_resource type="PackedScene" uid="uid://bof75gqhfpl85" path="res://src/items/Fuel.tscn" id="3_g1sdg"]
+[ext_resource type="Script" uid="uid://v0afeq406dv6" path="res://src/items/item_data.gd" id="4_7fh18"]
+
+[resource]
+script = ExtResource("4_7fh18")
+id = "1"
+item_name = "Fuel"
+icon = ExtResource("1_0g4j2")
+mesh_scene = ExtResource("3_g1sdg")
+metadata/_custom_type_script = "uid://v0afeq406dv6"

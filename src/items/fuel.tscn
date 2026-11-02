@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bof75gqhfpl85"]
+
+[ext_resource type="PackedScene" uid="uid://dnpvlkvx2ve4x" path="res://assets/models/object/Bensin.glb" id="1_2kp5p"]
+
+[node name="Fuel" unique_id=487627227 groups=["interactable"] instance=ExtResource("1_2kp5p")]

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dr1smsgkex7vh"]
+
+[ext_resource type="Script" uid="uid://beuytmpglhgwg" path="res://src/core/health_component.gd" id="1_toqcl"]
+[ext_resource type="Script" uid="uid://csjm0h2mjilsy" path="res://src/entities/enemy/enemy.gd" id="1_vg1v2"]
+[ext_resource type="Texture2D" uid="uid://b1uhnnaqiew54" path="res://assets/models/entities/Enemy-3.png" id="3_i868r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_auubq"]
+size = Vector3(1, 1.4971313, 1.0255127)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i868r"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("3_i868r")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vg1v2"]
+lightmap_size_hint = Vector2i(7, 10)
+material = SubResource("StandardMaterial3D_i868r")
+add_uv2 = true
+size = Vector2(1, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iu0cw"]
+albedo_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fq4t4"]
+material = SubResource("StandardMaterial3D_iu0cw")
+size = Vector3(0.08, 0.6471313, 0.08)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=37569293]
+script = ExtResource("1_vg1v2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1086765570]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0132751465, -0.036071777)
+shape = SubResource("BoxShape3D_auubq")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=391550490]
+script = ExtResource("1_toqcl")
+max_health = 40
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2013923572]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Visuals" unique_id=2111908857]
+transform = Transform3D(-2, -1.7484555e-07, -8.742278e-08, 8.742278e-08, 3.821371e-15, -2, 1.7484555e-07, -2, 3.821371e-15, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vg1v2")
+
+[node name="HandHolder" type="Node3D" parent="Visuals" unique_id=1029128696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38568306, 0.2, -0.058140486)
+
+[node name="WeaponMesh" type="MeshInstance3D" parent="Visuals/HandHolder" unique_id=110672972]
+transform = Transform3D(0.5324598, -0.7745391, 0.34143186, 0.2825078, 0.54284966, 0.79088783, -0.7979197, -0.3246589, 0.507859, -0.21118617, 0.91068643, -0.005758673)
+mesh = SubResource("BoxMesh_fq4t4")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cw6yrkcwyy4pc"
+path="res://.godot/imported/Escape 2.ogg-971ea7533c6a33002e5e5d1d4cfdfa62.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/voices/Escape 2.ogg"
+dest_files=["res://.godot/imported/Escape 2.ogg-971ea7533c6a33002e5e5d1d4cfdfa62.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

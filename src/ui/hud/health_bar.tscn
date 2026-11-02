@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ce4wecgbwiaes"]
+
+[ext_resource type="Script" uid="uid://b20fbgksrkew4" path="res://src/ui/hud/health_bar.gd" id="1_tby4x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk5x8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8cqn"]
+bg_color = Color(0.18039216, 0.8, 0.44313726, 1)
+
+[node name="HealthBar" type="CanvasLayer" unique_id=257216793]
+script = ExtResource("1_tby4x")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=359932222]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 80
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer" unique_id=685966893]
+custom_minimum_size = Vector2(224, 14)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_kk5x8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w8cqn")
+show_percentage = false
